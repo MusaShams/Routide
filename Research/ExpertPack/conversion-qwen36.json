@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "converted_at": "2026-07-23",
+  "model": {
+    "id": "mlx-community/Qwen3.6-35B-A3B-4bit",
+    "revision": "38740b847e4cb78f352aba30aa41c76e08e6eb46"
+  },
+  "source": {
+    "shard_file_bytes": 20402204271,
+    "tensor_payload_bytes": 20401929952,
+    "all_lfs_sha256_values_verified": true
+  },
+  "conversion": {
+    "status": "completed",
+    "elapsed_seconds": 73.91,
+    "maximum_resident_set_bytes": 56705024,
+    "chunk_size_bytes": 8388608
+  },
+  "output": {
+    "format": "routide-expert-pack",
+    "version": 1,
+    "file_bytes": 20403825982,
+    "manifest_file_bytes": 384318,
+    "manifest_file_sha256": "f8be2e36c337ee53e637441f9e3b282d249a8ff316fe4c04f753497a81dd5aa4",
+    "canonical_manifest_sha256": "d5bc6c33e63fcd868e8ca8151aa330354296f839da0c716c33cbbf71af605656",
+    "resident_file_bytes": 2284048384,
+    "resident_tensor_count": 1730,
+    "resident_padding_bytes": 1511712,
+    "expert_layer_files": 40,
+    "expert_layer_file_bytes": 452984832,
+    "expert_block_bytes": 1769472,
+    "expert_blocks_per_layer": 256,
+    "expert_quantization": {
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine"
+    },
+    "resident_quantization": {
+      "default_group_size": 64,
+      "default_bits": 4,
+      "mode": "affine",
+      "module_overrides": 80
+    },
+    "attention_configuration": {
+      "hidden_size": 2048,
+      "attention_heads": 16,
+      "kv_heads": 2,
+      "head_dim": 256,
+      "rope_dimensions": 64,
+      "rope_theta": 10000000.0,
+      "rms_norm_eps": 0.000001,
+      "full_attention_interval": 4
+    },
+    "linear_attention_configuration": {
+      "value_heads": 32,
+      "key_heads": 16,
+      "key_head_dim": 128,
+      "value_head_dim": 128,
+      "convolution_kernel_dim": 4
+    },
+    "all_file_sha256_values_verified": true
+  },
+  "storage": {
+    "binary_pack_committed_to_tfvc": false,
+    "reason": "Generated model weights are large licensed artifacts and remain outside source control."
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "status": "completed-offline-policy-sensitivity",
+  "experimentID": "routide-cache-policy-sensitivity-v1",
+  "analysisStartedAtUTC": "2026-09-17T03:59:23.160766+00:00",
+  "analysisFinishedAtUTC": "2026-09-17T04:03:58.359273+00:00",
+  "scope": {
+    "source": "Five archived 128-token held-out phone route captures, reused after review.",
+    "promptIDs": ["conversation-001", "code-001", "mathematics-001", "reasoning-001", "expository-001"],
+    "totalExpertRequestsPerReplaySet": 297280,
+    "prefillExpertRequestsPerReplaySet": 94080,
+    "decodeExpertRequestsPerReplaySet": 203200,
+    "expertBlockBytes": 1769472,
+    "cacheBudgetsMiB": [448, 512, 576, 640, 768, 1024],
+    "wholeExpertCapacities": [265, 303, 341, 379, 455, 606],
+    "pinnedPolicyReplays": 300,
+    "relaxedOracleReplays": 30,
+    "randomSeeds": [0, 1, 2, 3, 4],
+    "prefetch": "none",
+    "newPhoneRuns": 0,
+    "newModelInference": false,
+    "awsAccess": false,
+    "thresholdOrPolicyTuning": false,
+    "phaseHandling": "Continuous cache across prefill and decode; phase counters sum to the whole run without a decode reset."
+  },
+  "audit": {
+    "previouslyAvailablePolicies": ["lru", "lfu", "hybrid", "oracle"],
+    "addedOfflinePolicies": ["fifo", "random"],
+    "oldDefaultCLIPolicyListPreserved": true,
+    "randomRequiresExplicitSeed": true,
+    "existingSwiftPoliciesUnchanged": true,
+    "oracleQualification": "The pin-constrained farthest-next-use schedule is reported separately from an unpinned equal-size mandatory-admission optimal bound. The bound is not a deployable online policy."
+  },
+  "wholeRunRequestWeightedHitRates": {
+    "512MiB": {
+      "lru": 0.0,
+      "fifo": 0.0,
+      "lfuPerResidency": 0.0,
+      "hybrid": 0.0,
+      "randomSeedMean": 0.18800726587728742,
+      "randomSeedRange": [0.1864773950484392, 0.1892559203444564],
+      "pinnedFarthestNextUse": 0.544900430570506,
+      "relaxedUnpinnedOracleUpperHitBound": 0.5472752960172228
+    },
+    "576MiB": {
+      "lru": 0.3857642626480086,
+      "fifo": 0.25664356835306784,
+      "lfuPerResidency": 0.018208423035522066,
+      "hybrid": 0.14651506996770722,
+      "randomSeedMean": 0.21803619483315392,
+      "pinnedFarthestNextUse": 0.5693353067814855,
+      "relaxedUnpinnedOracleUpperHitBound": 0.5713435145317546
+    },
+    "1024MiBSelectedComparisons": {
+      "lru": 0.47590823466092574,
+      "hybrid": 0.4983449946178687,
+      "randomSeedMean": 0.3747255113024758
+    }
+  },
+  "random512MiBPerPromptSeedMeanHitRates": {
+    "conversation-001": 0.1971271306818182,
+    "code-001": 0.1876850558659218,
+    "mathematics-001": 0.1903922193877551,
+    "reasoning-001": 0.17758522727272727,
+    "expository-001": 0.18827777777777777
+  },
+  "weighting": {
+    "512MiBRandomRequestWeightedSeedMean": 0.18800726587728742,
+    "512MiBRandomPromptEqualSeedMean": 0.18821348219720002,
+    "576MiBLRURequestWeighted": 0.3857642626480086,
+    "576MiBLRUPromptEqual": 0.38616865706467535,
+    "randomRangeMeaning": "Range across five full-suite seeded simulations, not a confidence interval or independent phone replicates.",
+    "phaseInterpretation": "Oracle decisions optimize the complete known trace, not prefill or decode independently."
+  },
+  "logicalPayloadReads": {
+    "512MiBLRU": 526028636160,
+    "512MiBRandomMeanAcrossSeeds": 427131430502.4,
+    "576MiBLRU": 323105587200,
+    "512MiBRandomReductionFractionVersus512MiBLRU": 0.18800726587728742,
+    "scope": "Counterfactual demand expert payload bytes in fixed-route replay, not measured flash, NAND, disk-cache, latency, or power effects."
+  },
+  "reuseDistanceMechanism": {
+    "minimumDistinctInterveningExpertsInEveryPrompt": 312,
+    "512MiBWholeExpertCapacity": 303,
+    "576MiBWholeExpertCapacity": 341,
+    "distinctOtherLayerExpertsPerForward": 312,
+    "explanation": "Repeated use of the same layer/expert is separated by the other 39 layers, each demanding eight distinct layer/expert keys. With only 303 entries, LRU cannot retain any reused expert across the minimum observed distinct reuse distance of 312.",
+    "minimumWholeExpertCapacityForAnyObservedLRUReuse": 313,
+    "correspondingPayloadBytes": 553844736,
+    "correspondingPayloadMiB": 528.1875,
+    "capacityInterpretation": "Necessary LRU reuse condition for these recorded accesses, not a universal RAM requirement or a newly tested/recommended cache size.",
+    "independentHistogramPredictsEveryLRUHitCount": true
+  },
+  "validation": {
+    "allFive576MiBLRUBaselinesMatchDeviceCountersExactly": true,
+    "allPhaseAndDemandCountersReconcile": true,
+    "allReplaysRespectPayloadByteBudgets": true,
+    "oversizedExpertBypasses": 0,
+    "pinnedWorkingSetBypasses": 0,
+    "allReplaysRespectRelaxedOracleMissLowerBound": true,
+    "fifoAndRandomRespectSameProgressivePinLifetime": true,
+    "targetedTestsPassed": 42,
+    "legacySimulatorDeviceTraceAndHeldOutTestsPass": true,
+    "smallUnpinnedOracleFixturesMatchExhaustiveOptimum": true,
+    "pinnedAndRelaxedOracleResultsDifferOnThisSuite": true
+  },
+  "conclusions": [
+    "Zero hits at 512 MiB are not inevitable: seeded random eviction has nonzero reuse on every recorded prompt and seed while respecting the same cache budget and pins.",
+    "The observed cliff is an interaction between cyclic layer access and eviction policy. LRU, FIFO, and the tested per-residency LFU/hybrid variants all thrash at 512 MiB on these traces.",
+    "576 MiB LRU still outperforms 512 MiB random on every prompt and outperforms the other tested online policies at 576 MiB. This sweep does not justify reducing the default budget or replacing LRU.",
+    "Hybrid exceeds LRU at 1 GiB in this replay, further showing that policy rankings depend on capacity and workload; no timing or memory-efficiency gain is inferred.",
+    "The original measured 512-to-576 MiB speed result remains valid for its stated naive-LRU baseline and workload. It must not be generalized to an optimal or unavoidable cache-capacity threshold."
+  ],
+  "sourceFiles": {
+    "rawAnalysis": {
+      "file": "cache-policy-sensitivity-2026-09-17.json",
+      "sha256": "68c02c1b53051e49790ce5998795bd7a593045de7c917ffd6e62461c6ad0cd49"
+    },
+    "aggregateCSV": {
+      "file": "cache-policy-sensitivity-2026-09-17.csv",
+      "sha256": "055ca0ac3e8f70d4554cff0af6b087f9c4535455352b7bb3598858390eddc0da"
+    },
+    "protocol": {
+      "file": "../RouterTrace/cache-policy-sensitivity-v1.json",
+      "sha256": "98c42d5f424165f9311eb9a96f9478220ce1d327ba463428b70e193e09094cd0"
+    },
+    "driver": {
+      "file": "../RouterTrace/routide_trace/policy_sensitivity.py",
+      "sha256": "771edd8cb7537f2c46e280ba104f23b590600fe66e7c52e2f7fb478c8653209f"
+    },
+    "simulator": {
+      "file": "../RouterTrace/routide_trace/simulator.py",
+      "sha256": "e03146a5bae6294f9a5af8fc239e6a6e6d9ead0589f803cab7697675d98af69e"
+    },
+    "phoneSuite": {
+      "file": "iphone17-pro-max-heldout-routes-128-2026-09-07.json",
+      "sha256": "b6672b529e1fef208e39917d890121bc6ee919e248939f2b3c03cdb7b421fc75"
+    },
+    "captureProtocol": {
+      "file": "../../Libraries/RoutideRuntime/Resources/prefetch-heldout-v1.json",
+      "sha256": "81d23c36ab816f7d790b1ae135f6f7b81bc5d8e43bd1fc005cca1259f6e27543"
+    }
+  },
+  "limitations": [
+    "These five traces were already available before this study. The new sweep was fixed before replay, not before the original phone data collection.",
+    "Random seed variation is not workload replication; all seeds and budgets are retained.",
+    "LFU frequency resets on eviction in this implementation; results are not claims about every frequency-based cache design.",
+    "The unpinned oracle relaxes route protection and assumes future knowledge. Its upper hit bound is not a prediction of attainable online speed.",
+    "No new model generation, phone execution, output-quality check, latency measurement, whole-process memory measurement, or energy measurement was performed.",
+    "The six cache sizes are a fixed sensitivity grid, not a search for a newly optimized budget."
+  ],
+  "decision": {
+    "offlineSweepComplete": true,
+    "additionalSweepOrSeedTuningPlanned": false,
+    "phoneDefaultUnchanged": "576 MiB LRU / None",
+    "randomEvictionAvailableOnPhone": false,
+    "nextStage": "Add whole-process footprint/RSS and memory-pressure telemetry, then freeze one finite phone campaign. Use this policy-aware result to choose its controls before collecting new timings, rather than claiming that 512 MiB must have zero reuse."
+  }
+}

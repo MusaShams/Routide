@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "status": "completed-all-predeclared-correctness-checks-pass",
+  "experimentID": "routide-final-prefetch-correctness-v1",
+  "startedAtUTC": "2026-09-16T16:38:58.302843+00:00",
+  "finishedAtUTC": "2026-09-16T17:05:44.189295+00:00",
+  "scope": {
+    "host": "Existing Apple M1 Ultra Mac",
+    "implementation": "Actual Swift Routide model",
+    "arithmeticMode": "legacy",
+    "modelRevision": "38740b847e4cb78f352aba30aa41c76e08e6eb46",
+    "promptIDs": ["conversation-003", "code-003", "mathematics-003", "reasoning-003", "expository-003"],
+    "promptTokens": [49, 58, 80, 107, 54],
+    "maximumGeneratedTokens": 128,
+    "sampling": "greedy",
+    "prefillStepSize": 1,
+    "cacheStartPerCase": "cold",
+    "newPhoneCaptures": 0,
+    "thresholdRetuned": false
+  },
+  "reference": {
+    "cacheBudgetBytes": 21474836480,
+    "prefetchPolicy": "none",
+    "generationRole": "same-runtime reference capture, without invented phone or Python reference outputs",
+    "cacheBehavior": "demand-filled and zero-eviction, not preloaded",
+    "completedCases": 5,
+    "generatedTokens": 640,
+    "evictions": 0,
+    "loadFailures": 0,
+    "maximumCachePeakBytes": 12159811584
+  },
+  "conditions": [
+    {
+      "cacheMiB": 512,
+      "prefetchPolicy": "none",
+      "exactCases": 5,
+      "comparedTokens": 640,
+      "newPrefetchLoads": 0,
+      "alreadyResidentChecks": 0,
+      "evictions": 313045,
+      "logicalExpertBytesRead": 556605112320,
+      "maximumCachePeakBytes": 536150016
+    },
+    {
+      "cacheMiB": 576,
+      "prefetchPolicy": "none",
+      "exactCases": 5,
+      "comparedTokens": 640,
+      "newPrefetchLoads": 0,
+      "alreadyResidentChecks": 0,
+      "evictions": 195420,
+      "logicalExpertBytesRead": 348807168000,
+      "maximumCachePeakBytes": 603389952
+    },
+    {
+      "cacheMiB": 512,
+      "prefetchPolicy": "previousTop1PrefillConfidence20PreserveResidentNonBlocking",
+      "exactCases": 5,
+      "comparedTokens": 640,
+      "newPrefetchLoads": 10334,
+      "alreadyResidentChecks": 0,
+      "evictions": 317156,
+      "logicalExpertBytesRead": 563879411712,
+      "maximumCachePeakBytes": 536150016,
+      "usefulPrefetchBlocks": 6223,
+      "wastedPrefetchBlocks": 4111,
+      "usefulPrefetchBytes": 11011424256,
+      "wastedPrefetchBytes": 7274299392,
+      "logicalReadAmplificationPercentVersusNone": 1.3069048830111951,
+      "eachPromptStartsRealSpeculativeLoads": true,
+      "perPromptPrefetchLoads": [1417, 1745, 2472, 3008, 1692]
+    },
+    {
+      "cacheMiB": 576,
+      "prefetchPolicy": "previousTop1PrefillConfidence20PreserveResidentNonBlocking",
+      "exactCases": 5,
+      "comparedTokens": 640,
+      "newPrefetchLoads": 0,
+      "alreadyResidentChecks": 10334,
+      "evictions": 195420,
+      "logicalExpertBytesRead": 348807168000,
+      "maximumCachePeakBytes": 603389952,
+      "cacheCountersExactlyMatchDemandOnly": true
+    }
+  ],
+  "validation": {
+    "completedRunsIncludingReference": 25,
+    "runsReaching128TokenCap": 25,
+    "exactComparisonSequences": 20,
+    "comparisonSequences": 20,
+    "exactComparedTokens": 2560,
+    "comparedTokens": 2560,
+    "allStopFlagsMatchReference": true,
+    "allCachePayloadBudgetsRespected": true,
+    "expertLoadFailures": 0,
+    "observedDemandPrefetchJoins": 0,
+    "allDemandAndReadCountersReconcile": true,
+    "allFinalizedPrefetchByteCountersReconcile": true,
+    "allRequired512MiBPrefetchCoverageChecksPass": true,
+    "existingPhonePromptTokenizationControlsMatched": 5,
+    "swiftContractTestsPassed": 6,
+    "pythonOrchestrationTestsPassed": 5,
+    "strictSwiftFormatLintPassed": true,
+    "allResultHashesVerifiedLocally": true
+  },
+  "paperClaim": "For five additional fixed workloads, all 20 bounded-cache and asynchronous-prefetch comparisons produced exactly the same 128-token sequences and stop outcomes as a same-runtime zero-eviction reference, covering 2,560 token comparisons. The 512 MiB prefetch condition exercised 10,334 speculative expert loads without changing generated tokens or exceeding the expert-cache payload budget.",
+  "relationToEarlierEvidence": {
+    "priorNoPrefetchCacheControlPrompts": 5,
+    "additionalPrompts": 5,
+    "distinctPromptsWithSameRuntimeCacheTransparencyEvidence": 10,
+    "prefetchCoverageInThisNewMatrixPrompts": 5,
+    "priorResult": "swift-native-attention-cache-control-2026-09-16.json"
+  },
+  "sourceFiles": {
+    "matrixManifest": {
+      "file": "final-prefetch-matrix-v1/matrix.json",
+      "sha256": "acfc8721a02217e100059e83e5e1e6c13f2a6d516195a46f7d1483f2bd0c2cbe"
+    },
+    "referenceResult": {
+      "file": "final-prefetch-matrix-v1/reference-20gib.json",
+      "sha256": "e7d704e6693f2fa33979da8c919e8e8f3ac57699730ef702f4cfea553173e05f"
+    },
+    "none512": {
+      "file": "final-prefetch-matrix-v1/none-512mib.json",
+      "sha256": "53f54be8b75d21d1e7a9e069609471e5e014e8819c3009ddd0893eab1935cdf5"
+    },
+    "none576": {
+      "file": "final-prefetch-matrix-v1/none-576mib.json",
+      "sha256": "0ab81a7052c3b018e4bb3aa60b6b7f9e68a992bca68d82f584b19c85e74927f8"
+    },
+    "prefetch512": {
+      "file": "final-prefetch-matrix-v1/prefetch-512mib.json",
+      "sha256": "3fa27288b0de2f5d3d4dd4faa0a11073a2f7c734c1e92b2379f5399ee62fb540"
+    },
+    "prefetch576": {
+      "file": "final-prefetch-matrix-v1/prefetch-576mib.json",
+      "sha256": "fbdf13ee6267e5c2aa726f132bd2239e609c3d7720ec9e6383327dbfae504f6c"
+    },
+    "comparisonCases": {
+      "file": "final-prefetch-matrix-v1/comparison-cases.json",
+      "sha256": "4a2391b31d88f53e18828b02d83cb5707e31db62161a669dc2f5bd6dcf09bd96"
+    },
+    "captureCases": {
+      "file": "../RouterTrace/final-correctness-capture-cases-v1.json",
+      "sha256": "3bd5f0ff620a77281c6c3ea9b495b00a20a18fa3e8a7f69bea34d356884a5ed6"
+    },
+    "protocol": {
+      "file": "../RouterTrace/final-prefetch-correctness-v1.json",
+      "sha256": "49162992567d906e963243668b85e671d55144feaf12cd65ec855f40885e6677"
+    },
+    "driver": {
+      "file": "../RouterTrace/final_prefetch_matrix.py",
+      "sha256": "2ded18cb26b8ac7d138b32b7f0d263d9f212cfdeb1e1de53a99c15ba64727835"
+    },
+    "swiftProbe": {
+      "file": "../ModelProbe/ModelProbe.swift",
+      "sha256": "02ee3db727d329137331d09418c52d344508b5dcd4ca933f268c0915fb2169a3"
+    }
+  },
+  "executableSHA256": "9bd83b08e45e4fe6f6a19a4ab926ba86974dd5c78801945db055f1d8177652ca",
+  "rawMatrixArchiveSHA256": "5931b2808547300734d4cf5b0eb16b5e8f6401becb19e80636502dfaacb084f3",
+  "updatedRemoteBackup": {
+    "localSessionFile": "final-mac-session-backup-after-matrix-2026-09-16.tar.gz",
+    "sha256": "5b3a9712b5b69de68ffe8b84012f5fe3d054179b72bf0b7c4236e4d17aeb0f2a",
+    "files": 99,
+    "compressedBytes": 63309740,
+    "everyArchivedFileHashVerified": true,
+    "allSevenMatrixJSONsMatchLocalCopies": true,
+    "noPrivateKeysOrCredentialsIncluded": true
+  },
+  "limitations": [
+    "These are same-runtime Mac correctness checks, not newly measured iPhone results.",
+    "The 2,560 token comparisons repeat five workloads across conditions and are not 2,560 independent workload samples.",
+    "The 20 GiB control cache is demand-filled and is not an iPhone memory recommendation.",
+    "No live demand-to-inflight-prefetch joins occurred; this matrix does not establish coverage of every concurrency schedule or failure path.",
+    "This does not establish general cross-framework output equivalence, task-quality equivalence, speedup, or energy savings.",
+    "Read counts and cache budgets refer to logical expert payloads, not total process RAM or physical NAND traffic.",
+    "The frozen threshold was not adjusted and no new arithmetic variant was introduced."
+  ],
+  "decision": "The bounded final correctness matrix is complete. Preserve the strengthened paper evidence, refresh the backup, and begin cleanup rather than start additional Mac experiments.",
+  "phoneDefaultsChanged": false,
+  "awsHostStillAllocated": true,
+  "minimumHostReleaseUTC": "2026-09-17T01:00:03Z",
+  "automaticReleaseConfigured": false
+}

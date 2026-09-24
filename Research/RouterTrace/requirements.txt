@@ -1,0 +1,3 @@
+mlx-lm @ git+https://github.com/ml-explore/mlx-lm.git@cf10f962b7a20e63a6df43dbf0faf06070153d40
+mlx==0.31.2; sys_platform == "darwin"
+mlx-metal==0.31.2; sys_platform == "darwin"

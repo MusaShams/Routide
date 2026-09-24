@@ -1,0 +1,55 @@
+# macOS / Xcode
+.DS_Store
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# SwiftPM
+.build/
+.swiftpm/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-*/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local caches and downloads
+.cache/
+downloads/
+HF_HOME/
+
+# Model weights / generated Routide packs
+*.safetensors
+*.gguf
+*.bin
+experts/
+routide-*-pack/
+manifest.json
+
+# Local experiment outputs / private profiling
+runs/
+captures/
+profiles/
+*.trace
+*.dtps
+*.ips
+
+# Credentials / local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.mobileprovision
+
+# TeX build products
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz

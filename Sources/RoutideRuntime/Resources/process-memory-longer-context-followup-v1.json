@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "protocolID": "routide-process-memory-longer-context-followup-v1",
+  "declaredAt": "2026-09-19T19:52:08Z",
+  "continuation": {
+    "protocolID": "routide-process-memory-campaign-v1",
+    "stoppedAttemptRawSHA256": "3e352b7781c73e506874ef40f80346f00419b2d58d0174893019f8cb23e91eb2",
+    "unexecutedSequences": [13, 14]
+  },
+  "modelID": "mlx-community/Qwen3.6-35B-A3B-4bit",
+  "modelRevision": "38740b847e4cb78f352aba30aa41c76e08e6eb46",
+  "cachePolicy": "lru",
+  "prefetchPolicy": "none",
+  "modelPreparation": "release-model-and-tokenizer-before-each-load-inclusive-request",
+  "cacheStart": "cold-expert-cache-not-cold-filesystem-cache",
+  "maximumSuccessfulSampleGapSeconds": 1.0,
+  "nominalStabilizationSeconds": 2,
+  "thermalWaitTimeoutSeconds": 300,
+  "stopRule": "No automatic retry or replacement. Save every completed request before validation; stop on cancellation, generation/validation failure, memory warning, lifecycle interruption, Low Power Mode, or non-nominal thermal state. Preserve partial files.",
+  "analysisRule": "Execute only the two previously unexecuted longer-context requests, in the original 576 then 512 MiB order. Preserve this follow-up as a separate two-request memory characterization, linked to the stopped parent attempt; do not relabel or complete the parent's failed 14-run record. Compare exact prompt/output IDs and stop flags. Report each request's sampled memory, baseline/end readings, gaps and environment, with no statistical latency, energy, or context-scaling claim from this single pair. Record the new executable identity; do not pool timing across builds.",
+  "prompts": [
+    {
+      "id": "memory-context-001",
+      "category": "longer-context",
+      "role": "memory-only-single-pair",
+      "text": "Read these repeated notes carefully. In two sentences, summarize what is stated about cache hits and cold filesystem caches.",
+      "repeatedContext": "The expert cache stores a changing subset of model weights in memory. A cache hit avoids an expert payload read. Clearing this cache does not clear the operating system's filesystem cache.",
+      "contextRepetitions": 8,
+      "minimumPromptTokens": 256,
+      "maximumPromptTokens": 512,
+      "maxGeneratedTokens": 32,
+      "cacheBudgetOrderBytes": [603979776, 536870912]
+    }
+  ]
+}

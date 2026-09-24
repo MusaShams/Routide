@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "protocolID": "routide-prefetch-heldout-v1",
+  "declaredAt": "2026-09-07",
+  "corpusID": "routide-routing-v1",
+  "selectionRule": "Use the first indexed prompt in each corpus category. These prompts were not used to select the 0.20 threshold; the previous live five-category suite used the -002 prompts.",
+  "modelID": "mlx-community/Qwen3.6-35B-A3B-4bit",
+  "modelRevision": "38740b847e4cb78f352aba30aa41c76e08e6eb46",
+  "numLayers": 40,
+  "expertsPerLayer": 256,
+  "expertsPerToken": 8,
+  "expertBlockBytes": 1769472,
+  "captureCacheBudgetBytes": 603979776,
+  "captureCachePolicy": "lru",
+  "capturePrefetchPolicy": "none",
+  "maxGeneratedTokens": 128,
+  "confidenceThreshold": 0.20,
+  "evaluationCacheBudgetsBytes": [
+    536870912,
+    603979776
+  ],
+  "prompts": [
+    {
+      "id": "conversation-001",
+      "category": "conversation",
+      "text": "A teammate is nervous about presenting an unfinished prototype. Write a supportive response that acknowledges the risk and suggests a practical plan for the presentation."
+    },
+    {
+      "id": "code-001",
+      "category": "code",
+      "text": "Implement a Swift function that merges overlapping half-open integer ranges. State the time complexity and include examples covering empty input, touching ranges, and nested ranges."
+    },
+    {
+      "id": "mathematics-001",
+      "category": "mathematics",
+      "text": "A cache serves 72 percent of 2500 expert requests from memory. Each hit costs 0.15 milliseconds and each miss costs 4.8 milliseconds. Compute the average request latency and show each step."
+    },
+    {
+      "id": "reasoning-001",
+      "category": "reasoning",
+      "text": "Four jobs A, B, C, and D must run once. A must precede C, B must precede D, and C cannot run immediately after B. List every valid ordering and explain a systematic way to ensure none are missed."
+    },
+    {
+      "id": "expository-001",
+      "category": "expository",
+      "text": "Explain mixture-of-experts language models to a software engineer who understands dense transformers but has not studied model routing. Distinguish total parameters from active parameters."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "experimentID": "routide-swift-cache-isolation-v1",
+  "declaredDateLocal": "2026-09-16",
+  "question": "Does bounded expert-cache eviction change generated tokens when the entire Swift implementation, arithmetic, host, model, and inputs are held fixed?",
+  "casesFile": "swift-model-token-cases-v1.json",
+  "casesSHA256": "8091a60f1d38ae2a3b11761bbbb07f5e7dd163b2d57697ee7a7ddc8f7e84a415",
+  "arithmeticMode": "legacy",
+  "tokenCap": 128,
+  "cacheBudgetsMiB": [576, 20480],
+  "cacheStartPerCase": "cold",
+  "prefetch": "none",
+  "largeCacheRequirement": "Verify zero evictions and zero load failures, not merely a larger configured capacity.",
+  "unchangedConditions": ["Swift executable", "Metal library", "pack", "host", "input IDs", "arithmetic modes", "greedy decoding"],
+  "interpretationLimit": "This tests cache transparency within one implementation and backend, not equivalence to a different resident framework or hardware."
+}

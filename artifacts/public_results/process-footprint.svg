@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" style="max-width:100%;height:auto;display:block" role="img" aria-labelledby="title description">
+<title id="title">Sampled process footprint: retain the stopped row and separate follow-up</title><desc id="description">Bars are sampled request peaks; black dots are start readings. The twelfth parent request ended fair and is not a nominal comparison. Follow-up uses a different executable.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172638;font-size:14px}.title{font-size:21px;font-weight:bold}.small{font-size:12px}.grid{stroke:#d9e1e8;stroke-width:1}</style>
+<text x="48" y="34" class="title">Sampled process footprint: retain the stopped row and separate follow-up</text>
+<line x1="65" y1="371.000" x2="960" y2="371.000" class="grid"/>
+<text x="55" y="376.000" text-anchor="end">0</text>
+<line x1="65" y1="289.750" x2="960" y2="289.750" class="grid"/>
+<text x="55" y="294.750" text-anchor="end">1</text>
+<line x1="65" y1="208.500" x2="960" y2="208.500" class="grid"/>
+<text x="55" y="213.500" text-anchor="end">2</text>
+<line x1="65" y1="127.250" x2="960" y2="127.250" class="grid"/>
+<text x="55" y="132.250" text-anchor="end">3</text>
+<text x="65" y="70">Physical footprint (GiB); 250 ms sampling</text>
+<text x="339" y="93" text-anchor="middle">Parent: 12 short-prompt requests (stopped)</text>
+<text x="857" y="93" text-anchor="middle">Separate two-request follow-up</text>
+<rect data-cohort="parent-stopped" data-sequence="1" data-peak-bytes="2011843816" x="75" y="218.764" width="28" height="152.236" fill="#73a2c6"/>
+<circle cx="89" cy="368.799" r="4" fill="#172638"/>
+<text x="89" y="393" text-anchor="middle">1</text>
+<text x="89" y="411" text-anchor="middle" class="small">512</text>
+<rect data-cohort="parent-stopped" data-sequence="2" data-peak-bytes="2310442480" x="126" y="196.169" width="28" height="174.831" fill="#1664b2"/>
+<circle cx="140" cy="220.398" r="4" fill="#172638"/>
+<text x="140" y="393" text-anchor="middle">2</text>
+<text x="140" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="parent-stopped" data-sequence="3" data-peak-bytes="2474511928" x="177" y="183.754" width="28" height="187.246" fill="#1664b2"/>
+<circle cx="191" cy="213.790" r="4" fill="#172638"/>
+<text x="191" y="393" text-anchor="middle">3</text>
+<text x="191" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="parent-stopped" data-sequence="4" data-peak-bytes="2389839416" x="228" y="190.161" width="28" height="180.839" fill="#73a2c6"/>
+<circle cx="242" cy="215.154" r="4" fill="#172638"/>
+<text x="242" y="393" text-anchor="middle">4</text>
+<text x="242" y="411" text-anchor="middle" class="small">512</text>
+<rect data-cohort="parent-stopped" data-sequence="5" data-peak-bytes="2375503392" x="279" y="191.246" width="28" height="179.754" fill="#1664b2"/>
+<circle cx="293" cy="216.241" r="4" fill="#172638"/>
+<text x="293" y="393" text-anchor="middle">5</text>
+<text x="293" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="parent-stopped" data-sequence="6" data-peak-bytes="2384743968" x="330" y="190.547" width="28" height="180.453" fill="#73a2c6"/>
+<circle cx="344" cy="215.568" r="4" fill="#172638"/>
+<text x="344" y="393" text-anchor="middle">6</text>
+<text x="344" y="411" text-anchor="middle" class="small">512</text>
+<rect data-cohort="parent-stopped" data-sequence="7" data-peak-bytes="2390642232" x="381" y="190.100" width="28" height="180.900" fill="#73a2c6"/>
+<circle cx="395" cy="214.854" r="4" fill="#172638"/>
+<text x="395" y="393" text-anchor="middle">7</text>
+<text x="395" y="411" text-anchor="middle" class="small">512</text>
+<rect data-cohort="parent-stopped" data-sequence="8" data-peak-bytes="2355154488" x="432" y="192.786" width="28" height="178.214" fill="#1664b2"/>
+<circle cx="446" cy="216.835" r="4" fill="#172638"/>
+<text x="446" y="393" text-anchor="middle">8</text>
+<text x="446" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="parent-stopped" data-sequence="9" data-peak-bytes="2429750840" x="483" y="187.141" width="28" height="183.859" fill="#73a2c6"/>
+<circle cx="497" cy="213.203" r="4" fill="#172638"/>
+<text x="497" y="393" text-anchor="middle">9</text>
+<text x="497" y="411" text-anchor="middle" class="small">512</text>
+<rect data-cohort="parent-stopped" data-sequence="10" data-peak-bytes="2438401616" x="534" y="186.486" width="28" height="184.514" fill="#1664b2"/>
+<circle cx="548" cy="213.598" r="4" fill="#172638"/>
+<text x="548" y="393" text-anchor="middle">10</text>
+<text x="548" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="parent-stopped" data-sequence="11" data-peak-bytes="2488782416" x="585" y="182.674" width="28" height="188.326" fill="#1664b2"/>
+<circle cx="599" cy="212.207" r="4" fill="#172638"/>
+<text x="599" y="393" text-anchor="middle">11</text>
+<text x="599" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="parent-stopped" data-sequence="12" data-peak-bytes="2441858640" x="636" y="186.225" width="28" height="184.775" fill="#73a2c6" stroke="#b34812" stroke-width="3"/>
+<circle cx="650" cy="211.407" r="4" fill="#172638"/>
+<text x="650" y="393" text-anchor="middle">12</text>
+<text x="650" y="411" text-anchor="middle" class="small">512</text>
+<text x="650" y="174.225" text-anchor="middle" class="small">fair / STOP</text>
+<rect data-cohort="separate-followup" data-sequence="1" data-peak-bytes="2565868728" x="793" y="176.841" width="28" height="194.159" fill="#1664b2"/>
+<circle cx="807" cy="368.762" r="4" fill="#172638"/>
+<text x="807" y="393" text-anchor="middle">1</text>
+<text x="807" y="411" text-anchor="middle" class="small">576</text>
+<rect data-cohort="separate-followup" data-sequence="2" data-peak-bytes="2930576904" x="891" y="149.243" width="28" height="221.757" fill="#73a2c6"/>
+<circle cx="905" cy="178.331" r="4" fill="#172638"/>
+<text x="905" y="393" text-anchor="middle">2</text>
+<text x="905" y="411" text-anchor="middle" class="small">512</text>
+<line x1="730" y1="108" x2="730" y2="418" stroke="#8a969f" stroke-dasharray="5 5"/>
+<text x="65" y="439" class="small">Labels below bars: request number / expert budget in MiB.</text>
+<rect x="65" y="457" width="14" height="14" fill="#1664b2"/><text x="87" y="469">576 MiB</text>
+<rect x="190" y="457" width="14" height="14" fill="#73a2c6"/><text x="212" y="469">512 MiB</text>
+<circle cx="350" cy="464" r="4" fill="#172638"/><text x="363" y="469">Request baseline</text>
+<text x="65" y="503" class="small">Separate builds and unequal baselines; sampled maxima are not causal cache-size effects or continuous high-water marks.</text></svg>

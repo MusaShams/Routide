@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "status": "completed-held-out-cache-screening",
+  "experimentID": "BBACE3EF-12BC-47EB-9476-63FE4902E60F",
+  "captureStartedAt": "2026-09-07T21:11:35Z",
+  "captureFinishedAt": "2026-09-07T21:18:26Z",
+  "protocolID": "routide-prefetch-heldout-v1",
+  "protocolSHA256": "81d23c36ab816f7d790b1ae135f6f7b81bc5d8e43bd1fc005cca1259f6e27543",
+  "sourceFiles": {
+    "rawSuite": {
+      "file": "iphone17-pro-max-heldout-routes-128-2026-09-07.json",
+      "sha256": "b6672b529e1fef208e39917d890121bc6ee919e248939f2b3c03cdb7b421fc75"
+    },
+    "offlineAnalysis": {
+      "file": "iphone17-pro-max-heldout-confidence20-route-analysis-2026-09-07.json",
+      "sha256": "9b4042f0618384674236dc917149bb026dae44f9f7ba046aab8ad330f34970aa"
+    },
+    "suiteAnalyzer": {
+      "file": "../RouterTrace/routide_trace/heldout_routes.py",
+      "sha256": "80821b748c3b8f10b3de0a8285cca8753e07bbda731c8f21315a820baf00d5b6"
+    },
+    "cacheReplay": {
+      "file": "../RouterTrace/routide_trace/device_routes.py",
+      "sha256": "a47ed062cbd35a84b6475185e854702d3596f93b22c4f54e70e2cd7f039fa9dd"
+    }
+  },
+  "captureValidation": {
+    "completedPrompts": 5,
+    "generatedTokensPerPrompt": 128,
+    "totalGeneratedTokens": 640,
+    "totalRouteRecords": 37160,
+    "totalExpertRequests": 297280,
+    "actualCapturedPayloadBytesRead": 323105587200,
+    "prefetchDuringCapture": "none",
+    "cacheDuringCapture": "576 MiB LRU, cold per prompt",
+    "allFiveDeviceBaselineCounterSetsMatchReplay": true,
+    "allFiveAppSampledPeakThermalStatesNominal": true,
+    "lifecycleInterruptions": 0,
+    "idleTimerDisabledDuringRuns": true
+  },
+  "frozenPrefillPrediction": {
+    "confidenceThreshold": 0.20,
+    "eligiblePredictions": 8741,
+    "nextSelectionMatches": 5359,
+    "nextSelectionMisses": 3382,
+    "microPredictionWeightedPrecision": 0.613087747397323,
+    "macroPromptEqualMeanPrecision": 0.6118767543363198,
+    "perPromptPrecision": {
+      "conversation-001": 0.5867709815078236,
+      "code-001": 0.624131396083386,
+      "mathematics-001": 0.6447559207346544,
+      "reasoning-001": 0.5898821218074656,
+      "expository-001": 0.6138433515482696
+    },
+    "thresholdRetunedOnHeldOutData": false
+  },
+  "offlineReplay512MiB": {
+    "demandOnlyPayloadBytes": 526028636160,
+    "newPrefetchLoads": 8741,
+    "alreadyResidentChecks": 0,
+    "candidateDemandHits": 5359,
+    "candidatePayloadBytes": 532012990464,
+    "additionalPayloadBytes": 5984354304,
+    "microByteWeightedReadAmplificationPercent": 1.1376480086114027,
+    "macroPromptEqualMeanReadAmplificationPercent": 1.1328539850318808,
+    "refreshAndPreserveOutcomesIdentical": true,
+    "interpretation": "The frozen predictor retains useful next-selection overlap across the five held-out prompts, with modest extra payload reads in fixed-route replay. This does not demonstrate that the speculative reads would improve live latency."
+  },
+  "offlineReplay576MiB": {
+    "demandOnly": {
+      "hits": 114680,
+      "misses": 182600,
+      "payloadBytes": 323105587200,
+      "microRequestWeightedHitRate": 0.3857642626480086
+    },
+    "residentPriorityRefresh": {
+      "alreadyResidentChecks": 8684,
+      "newPrefetchLoads": 57,
+      "hits": 113560,
+      "misses": 183720,
+      "additionalDemandMisses": 1120,
+      "payloadBytes": 325188255744,
+      "additionalPayloadBytes": 2082668544,
+      "microByteWeightedReadAmplificationPercent": 0.6445783132530192,
+      "promptsWithHigherPayloadReads": 5
+    },
+    "preserveResidentPriority": {
+      "alreadyResidentChecks": 8741,
+      "newPrefetchLoads": 0,
+      "hits": 114680,
+      "misses": 182600,
+      "payloadBytes": 323105587200,
+      "readAmplificationPercent": 0,
+      "promptsMatchingDemandOnlyCountersExactly": 5
+    },
+    "interpretation": "The current resident-refresh semantics degrade cache reuse on every held-out prompt. The predeclared preserve-resident variant avoids those effects and exactly matches demand-only cache counters in all five cases. With no new loads, it supplies no storage I/O to overlap at this budget."
+  },
+  "limitations": [
+    "This is five held-out prompts, one per category, not a broad statistical guarantee.",
+    "Only demand-only capture counters were measured on-device here. Candidate results are fixed-route offline replays assuming speculative reads complete before demand.",
+    "Neither a speedup nor an energy-saving effect has been measured for the cache-preserving variant. CPU overhead, scheduling, and asynchronous I/O timing are not simulated.",
+    "The current cache-refresh and proposed cache-preserving behaviors were both specified before the held-out capture; threshold 0.20 was not refitted.",
+    "The live Swift cache policy has not been modified by this offline analysis.",
+    "Payload byte counts do not directly measure physical NAND traffic."
+  ],
+  "decision": {
+    "heldOutOfflineEvaluationComplete": true,
+    "enablePrefetchByDefault": false,
+    "keep576MiBLRUWithNoPrefetchAsDefault": true,
+    "nextStep": "Implement the cache-preserving resident-check behavior as a separately named experimental runtime policy, leaving existing ablations intact. Validate its integration with a small targeted device check only after tests and offline replay agree; do not repeat the held-out suite or power study merely to obtain more samples."
+  }
+}

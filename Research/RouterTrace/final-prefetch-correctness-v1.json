@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "experimentID": "routide-final-prefetch-correctness-v1",
+  "declaredDateLocal": "2026-09-16",
+  "promptSelection": ["conversation-003", "code-003", "mathematics-003", "reasoning-003", "expository-003"],
+  "promptSource": "corpus-v1.json, original wording unchanged",
+  "modelRevision": "38740b847e4cb78f352aba30aa41c76e08e6eb46",
+  "arithmeticMode": "legacy",
+  "maximumGeneratedTokens": 128,
+  "naturalEndTokensRetained": true,
+  "reference": {"cacheMiB": 20480, "prefetchPolicy": "none", "requiresZeroEvictions": true},
+  "comparisons": [
+    {"cacheMiB": 512, "prefetchPolicy": "none"},
+    {"cacheMiB": 576, "prefetchPolicy": "none"},
+    {"cacheMiB": 512, "prefetchPolicy": "previousTop1PrefillConfidence20PreserveResidentNonBlocking"},
+    {"cacheMiB": 576, "prefetchPolicy": "previousTop1PrefillConfidence20PreserveResidentNonBlocking"}
+  ],
+  "cacheStartPerCase": "cold",
+  "checks": [
+    "Exact generated-token sequence and stop-flag equality against the same Swift runtime's zero-eviction reference.",
+    "Recorded cache peak never exceeds the configured byte budget.",
+    "No expert-load failures.",
+    "Demand hits, misses, joins, and total loaded bytes reconcile.",
+    "Finalized useful and wasted speculative bytes reconcile.",
+    "Every 512 MiB prefetch case starts real speculative loads."
+  ],
+  "constraints": {
+    "noThresholdRetuning": true,
+    "noNewArithmeticVariants": true,
+    "noNewPhoneCaptures": true,
+    "deadlineUTC": "2026-09-16T19:00:00Z",
+    "backupAndCleanupAfterMatrix": true
+  },
+  "interpretationLimit": "Correctness and workload coverage of cache/prefetch behavior within one backend; not iPhone latency, physical NAND traffic, power savings, or universal output equivalence."
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "experimentID": "routide-cache-policy-sensitivity-v1",
+  "declaredAtUTC": "2026-09-17T03:52:54Z",
+  "question": "Is the 512-to-576 MiB hit-rate cliff specific to LRU on the recorded routes, or unavoidable at that byte budget?",
+  "source": {
+    "suite": "../DeviceRoutes/iphone17-pro-max-heldout-routes-128-2026-09-07.json",
+    "suiteSHA256": "b6672b529e1fef208e39917d890121bc6ee919e248939f2b3c03cdb7b421fc75",
+    "captureProtocol": "../../Libraries/RoutideRuntime/Resources/prefetch-heldout-v1.json",
+    "captureProtocolSHA256": "81d23c36ab816f7d790b1ae135f6f7b81bc5d8e43bd1fc005cca1259f6e27543",
+    "promptIDs": ["conversation-001", "code-001", "mathematics-001", "reasoning-001", "expository-001"]
+  },
+  "cacheBudgetsMiB": [448, 512, 576, 640, 768, 1024],
+  "policies": ["lru", "fifo", "lfu", "hybrid", "random", "oracle"],
+  "randomSeeds": [0, 1, 2, 3, 4],
+  "relaxedOracleBound": {
+    "enabled": true,
+    "protectRoute": false,
+    "scope": "Equal-size mandatory-admission demand paging with route pins relaxed; a miss lower bound, not a deployable policy."
+  },
+  "independentLRUCheck": "Compute distinct intervening expert reuse distances and verify each LRU hit count against its integer expert capacity.",
+  "execution": {
+    "expertBlockBytes": 1769472,
+    "coldCachePerPromptPolicyBudgetSeed": true,
+    "prefetch": "none",
+    "accessOrder": "Recorded step-major layer order and recorded selected-expert order, never sorted.",
+    "pinning": "Each successfully loaded demand expert stays protected until the end of its eight-expert layer record; future selected experts are not protected before demand.",
+    "phases": "One continuous prefill-to-decode run. Phase counters are deltas in that run; no decode cache reset.",
+    "randomChoice": "Python random.Random(seed), uniform over currently unprotected resident keys in dictionary insertion order.",
+    "lfu": "Per-residency demand frequency; ties by last access, then stable insertion order.",
+    "hybrid": "Per-residency frequency divided by (1 + current access clock - last access); ties by last access, then stable insertion order.",
+    "oracle": "Existing farthest-next-use eviction with the same route pin constraints. Any relaxed unpinned Belady bound must be reported separately; do not presume pin-constrained optimality."
+  },
+  "validation": [
+    "All five 576 MiB LRU baselines must exactly reproduce captured device hits, misses, and logical payload bytes.",
+    "Every request is a hit or a miss; logical bytes equal misses times the fixed expert block size.",
+    "All caches stay within byte budget, with zero oversized-expert or pinned-working-set bypasses on the real suite.",
+    "All policies use exactly the same demand order and pin lifetime.",
+    "Deterministic synthetic fixtures check FIFO hit/reinsertion behavior, random seed reproducibility, protection, and farthest-next-use oracle scope.",
+    "Prefill and decode counters sum to the complete run without resetting the cache.",
+    "Keep every fixed seed and every budget; do not select only favorable random trials."
+  ],
+  "aggregates": {
+    "deterministic": "Report per-prompt results, prompt-equal macro mean, and request/byte-weighted micro totals.",
+    "random": "Report every seed, seed mean and range, and separately prompt-equal/request-weighted aggregates. Seeds are simulation sensitivity, not independent prompts or phone replicates."
+  },
+  "stoppingRule": "One fixed sweep; no threshold fitting, invented adaptive policy, new phone run, or rented hardware. Preserve the measured LRU baseline and all negative results.",
+  "limitations": [
+    "Fixed-route cache replay does not measure wall-clock latency, storage contention, process memory, power, or output quality.",
+    "A better non-LRU hit rate at 512 MiB disproves inevitability of zero hits on these traces, not all capacity constraints or the observed LRU timing results.",
+    "Five prompts provide bounded sensitivity evidence, not a universal optimal cache budget.",
+    "Existing traces are reused after review; this protocol is fixed before this new sweep, not a claim of preregistered original data collection."
+  ]
+}

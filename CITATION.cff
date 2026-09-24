@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use Routide, please cite the paper and repository using the metadata below."
+title: "Routide: Flash-Backed Mixture-of-Experts Inference on Apple Devices"
+authors:
+  - family-names: "Shams"
+    given-names: "Musa"
+    orcid: "https://orcid.org/0009-0005-1015-5342"
+year: 2026
+url: "https://github.com/MusaShams/Routide"
+repository-code: "https://github.com/MusaShams/Routide"
+keywords:
+  - mixture-of-experts
+  - on-device inference
+  - expert caching
+  - flash-backed inference
+  - Apple MLX
+  - performance characterization
+license: MIT

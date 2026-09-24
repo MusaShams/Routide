@@ -1,0 +1,159 @@
+{
+  "allWithinCaseGenerationsIdentical": true,
+  "build": {
+    "CFBundleIdentifier": "research.Routide92AQ687JD8",
+    "CFBundleShortVersionString": "1.0",
+    "CFBundleVersion": "1",
+    "DTSDKBuild": "24A430",
+    "DTXcodeBuild": "27A266a",
+    "executableSHA256": "fb4a9a6487a3e0a58828eed02b64c0e07ab648ca2fa82722b96bee27c6ac808d"
+  },
+  "cases": [
+    {
+      "budgets": [
+        {
+          "cacheBudgetBytes": 536870912,
+          "metrics": {
+            "minimumAvailableMemoryBytes": {
+              "maximum": 3511874040,
+              "median": 3511874040,
+              "minimum": 3511874040
+            },
+            "peakPhysicalFootprintBytes": {
+              "maximum": 2930576904,
+              "median": 2930576904,
+              "minimum": 2930576904
+            },
+            "peakResidentBytes": {
+              "maximum": 2258747392,
+              "median": 2258747392,
+              "minimum": 2258747392
+            }
+          },
+          "runCount": 1
+        },
+        {
+          "cacheBudgetBytes": 603979776,
+          "metrics": {
+            "minimumAvailableMemoryBytes": {
+              "maximum": 3876582216,
+              "median": 3876582216,
+              "minimum": 3876582216
+            },
+            "peakPhysicalFootprintBytes": {
+              "maximum": 2565868728,
+              "median": 2565868728,
+              "minimum": 2565868728
+            },
+            "peakResidentBytes": {
+              "maximum": 1949155328,
+              "median": 1949155328,
+              "minimum": 1949155328
+            }
+          },
+          "runCount": 1
+        }
+      ],
+      "pairs": [
+        {
+          "changes": {
+            "minimumAvailableMemoryBytes": {
+              "difference576Minus512": 364708176,
+              "percentChangeFrom512": 10.385001621527401
+            },
+            "peakPhysicalFootprintBytes": {
+              "difference576Minus512": -364708176,
+              "percentChangeFrom512": -12.444927669436101
+            },
+            "peakResidentBytes": {
+              "difference576Minus512": -309592064,
+              "percentChangeFrom512": -13.706360662396733
+            }
+          },
+          "pair": 1,
+          "sequence512": 2,
+          "sequence576": 1
+        }
+      ],
+      "promptID": "memory-context-001",
+      "role": "memory-only-single-pair"
+    }
+  ],
+  "continuation": {
+    "protocolID": "routide-process-memory-campaign-v1",
+    "stoppedAttemptRawSHA256": "3e352b7781c73e506874ef40f80346f00419b2d58d0174893019f8cb23e91eb2",
+    "unexecutedSequences": [
+      13,
+      14
+    ]
+  },
+  "generatedTokens": 64,
+  "limitations": [
+    "Sampled process maxima, not continuous high-water marks or app-lifetime peaks.",
+    "Load-inclusive serial-prefill requests; cold expert caches do not imply cold filesystem caches.",
+    "Descriptive measurements only; no inferential significance or cross-build pooling.",
+    "Longer-context single pair is memory characterization only.",
+    "Logical expert payload bytes are not physical NAND reads; no energy or quality claim.",
+    "Null relative changes mean a zero baseline, not zero improvement.",
+    "A separate follow-up never changes the completion status or replaces rows of its parent attempt."
+  ],
+  "logicalExpertPayloadBytes": 369117167616,
+  "maximumSampledPhysicalFootprintBytesAcrossRequests": 2930576904,
+  "operatingSystem": "Version 27.0 (Build 24A437)",
+  "packManifestSHA256": "f8be2e36c337ee53e637441f9e3b282d249a8ff316fe4c04f753497a81dd5aa4",
+  "protocolID": "routide-process-memory-longer-context-followup-v1",
+  "protocolSHA256": "17f59a2034d02c520adc8f8ce36b4cbf6d442e4132d0c2ce223764ecc6f6fa32",
+  "requestCount": 2,
+  "runs": [
+    {
+      "baselinePhysicalFootprintBytes": 29574984,
+      "cacheBudgetBytes": 603979776,
+      "decodeTokensPerSecond": 2.230704340844569,
+      "elapsedTimeSeconds": 199.90421903133392,
+      "expertCacheHits": 28837,
+      "expertCacheMisses": 89883,
+      "finalPhysicalFootprintBytes": 2565524664,
+      "generatedTokens": 32,
+      "logicalExpertPayloadBytes": 159045451776,
+      "maximumSamplingGapSeconds": 0.2549307080000034,
+      "minimumAvailableMemoryBytes": 3876582216,
+      "pair": 1,
+      "peakPhysicalFootprintBytes": 2565868728,
+      "peakResidentBytes": 1949155328,
+      "promptID": "memory-context-001",
+      "promptTokens": 340,
+      "requestIncludingDrainSeconds": 199.903034833,
+      "role": "memory-only-single-pair",
+      "sampleCount": 801,
+      "sequence": 1,
+      "timeToFirstTokenMilliseconds": 186007.26306438446
+    },
+    {
+      "baselinePhysicalFootprintBytes": 2546175160,
+      "cacheBudgetBytes": 536870912,
+      "decodeTokensPerSecond": 2.0602561029597677,
+      "elapsedTimeSeconds": 211.09622406959534,
+      "expertCacheHits": 0,
+      "expertCacheMisses": 118720,
+      "finalPhysicalFootprintBytes": 2590494000,
+      "generatedTokens": 32,
+      "logicalExpertPayloadBytes": 210071715840,
+      "maximumSamplingGapSeconds": 0.25504845899999995,
+      "minimumAvailableMemoryBytes": 3511874040,
+      "pair": 1,
+      "peakPhysicalFootprintBytes": 2930576904,
+      "peakResidentBytes": 2258747392,
+      "promptID": "memory-context-001",
+      "promptTokens": 340,
+      "requestIncludingDrainSeconds": 211.094915458,
+      "role": "memory-only-single-pair",
+      "sampleCount": 846,
+      "sequence": 2,
+      "timeToFirstTokenMilliseconds": 196049.55101013184
+    }
+  ],
+  "schemaVersion": 2,
+  "sourceFile": "iphone17-pro-max-process-memory-longer-context-followup-2026-09-19-raw.json",
+  "sourceSHA256": "9c941da44b0a588f0d5892a7dda67ca1f090cc44b6d43a13e154b286f86aa69f",
+  "status": "completed-validated"
+}

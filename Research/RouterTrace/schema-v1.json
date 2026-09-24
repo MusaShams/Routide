@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://routide.local/schemas/router-trace-v1.json",
+  "title": "Routide router trace record",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/header"
+    },
+    {
+      "$ref": "#/$defs/route"
+    },
+    {
+      "$ref": "#/$defs/routeBatch"
+    },
+    {
+      "$ref": "#/$defs/summary"
+    }
+  ],
+  "$defs": {
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "trace_id",
+        "created_at",
+        "model",
+        "runtime",
+        "generation"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "header"
+        },
+        "schema_version": {
+          "const": 1
+        },
+        "trace_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "revision",
+            "architecture",
+            "num_layers",
+            "num_experts",
+            "top_k",
+            "expert_bytes_by_layer"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "string",
+              "minLength": 1
+            },
+            "architecture": {
+              "const": "qwen3_5_moe"
+            },
+            "num_layers": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "num_experts": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "top_k": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "expert_bytes_by_layer": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "version",
+            "revision"
+          ],
+          "properties": {
+            "name": {
+              "const": "mlx-lm"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "generation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "prompt_id",
+            "prompt_sha256",
+            "prompt_tokens",
+            "max_generated_tokens",
+            "temperature",
+            "seed",
+            "prefill_step_size"
+          ],
+          "properties": {
+            "prompt_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "prompt_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "prompt_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_generated_tokens": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "temperature": {
+              "type": "number",
+              "minimum": 0
+            },
+            "seed": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "prefill_step_size": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "forward_index",
+        "phase",
+        "token_position",
+        "token_id",
+        "layer",
+        "selected_experts",
+        "router_scores",
+        "routing_weights"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "route"
+        },
+        "forward_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phase": {
+          "enum": [
+            "prefill",
+            "decode"
+          ]
+        },
+        "token_position": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "token_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "layer": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_experts": {
+          "description": "Must contain exactly header.model.top_k unique indices.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "router_scores": {
+          "description": "Must align with selected_experts, contain exactly header.model.top_k values, and be sorted in descending order.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "routing_weights": {
+          "description": "Execution weights after the model's optional top-k renormalization, aligned with selected_experts.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "routeBatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "forward_index",
+        "phase",
+        "layer",
+        "token_start",
+        "token_count",
+        "routed_expert_execution_nanoseconds"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "route_batch"
+        },
+        "forward_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phase": {
+          "enum": [
+            "prefill",
+            "decode"
+          ]
+        },
+        "layer": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "token_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "token_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "routed_expert_execution_nanoseconds": {
+          "description": "Synchronized wall time for the selected routed experts across this forward batch; excludes the shared expert.",
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "completed_at",
+        "generated_tokens",
+        "generated_token_ids",
+        "output_sha256"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "summary"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "generated_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "generated_token_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "output_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "protocolID": "routide-process-memory-campaign-v1",
+  "declaredAt": "2026-09-17T17:47:04Z",
+  "modelID": "mlx-community/Qwen3.6-35B-A3B-4bit",
+  "modelRevision": "38740b847e4cb78f352aba30aa41c76e08e6eb46",
+  "cachePolicy": "lru",
+  "prefetchPolicy": "none",
+  "modelPreparation": "release-model-and-tokenizer-before-each-load-inclusive-request",
+  "cacheStart": "cold-expert-cache-not-cold-filesystem-cache",
+  "maximumSuccessfulSampleGapSeconds": 1.0,
+  "nominalStabilizationSeconds": 2,
+  "thermalWaitTimeoutSeconds": 300,
+  "stopRule": "No automatic retry or replacement. Save every completed request before validation; stop on cancellation, generation/validation failure, memory warning, lifecycle interruption, Low Power Mode, or non-nominal thermal state. Preserve partial files.",
+  "analysisRule": "Compare exact prompt/output IDs and stop flags within each case. Primary cases have two AB/BA pairs: report every run, each paired latency/read/memory difference, and per-budget minimum/median/maximum. The longer-context case is a single pair, memory characterization only. No hypothesis tests, energy claims, or cross-build pooling.",
+  "prompts": [
+    {
+      "id": "conversation-001",
+      "category": "conversation",
+      "role": "primary-paired",
+      "text": "A teammate is nervous about presenting an unfinished prototype. Write a supportive response that acknowledges the risk and suggests a practical plan for the presentation.",
+      "contextRepetitions": 0,
+      "minimumPromptTokens": 1,
+      "maximumPromptTokens": 128,
+      "maxGeneratedTokens": 128,
+      "cacheBudgetOrderBytes": [536870912, 603979776, 603979776, 536870912]
+    },
+    {
+      "id": "code-001",
+      "category": "code",
+      "role": "primary-paired",
+      "text": "Implement a Swift function that merges overlapping half-open integer ranges. State the time complexity and include examples covering empty input, touching ranges, and nested ranges.",
+      "contextRepetitions": 0,
+      "minimumPromptTokens": 1,
+      "maximumPromptTokens": 128,
+      "maxGeneratedTokens": 128,
+      "cacheBudgetOrderBytes": [603979776, 536870912, 536870912, 603979776]
+    },
+    {
+      "id": "mathematics-001",
+      "category": "mathematics",
+      "role": "primary-paired",
+      "text": "A cache serves 72 percent of 2500 expert requests from memory. Each hit costs 0.15 milliseconds and each miss costs 4.8 milliseconds. Compute the average request latency and show each step.",
+      "contextRepetitions": 0,
+      "minimumPromptTokens": 1,
+      "maximumPromptTokens": 128,
+      "maxGeneratedTokens": 128,
+      "cacheBudgetOrderBytes": [536870912, 603979776, 603979776, 536870912]
+    },
+    {
+      "id": "memory-context-001",
+      "category": "longer-context",
+      "role": "memory-only-single-pair",
+      "text": "Read these repeated notes carefully. In two sentences, summarize what is stated about cache hits and cold filesystem caches.",
+      "repeatedContext": "The expert cache stores a changing subset of model weights in memory. A cache hit avoids an expert payload read. Clearing this cache does not clear the operating system's filesystem cache.",
+      "contextRepetitions": 8,
+      "minimumPromptTokens": 256,
+      "maximumPromptTokens": 512,
+      "maxGeneratedTokens": 32,
+      "cacheBudgetOrderBytes": [603979776, 536870912]
+    }
+  ]
+}

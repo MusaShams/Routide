@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "corpus_id": "routide-routing-v1",
+  "description": "Original prompts for comparing Qwen3.6 expert routing across workload categories.",
+  "prompts": [
+    {
+      "id": "conversation-001",
+      "category": "conversation",
+      "text": "A teammate is nervous about presenting an unfinished prototype. Write a supportive response that acknowledges the risk and suggests a practical plan for the presentation."
+    },
+    {
+      "id": "conversation-002",
+      "category": "conversation",
+      "text": "Help me plan a quiet weekend at home that balances rest, household chores, and one creative activity. Explain why the schedule is realistic."
+    },
+    {
+      "id": "conversation-003",
+      "category": "conversation",
+      "text": "Two friends disagree about whether to split every shared expense equally or according to income. Summarize both positions and propose a fair compromise."
+    },
+    {
+      "id": "code-001",
+      "category": "code",
+      "text": "Implement a Swift function that merges overlapping half-open integer ranges. State the time complexity and include examples covering empty input, touching ranges, and nested ranges."
+    },
+    {
+      "id": "code-002",
+      "category": "code",
+      "text": "Review this Python function and provide a corrected implementation that preserves order while removing duplicates: def unique(values): return list(set(values)). Explain the behavioral bug and test edge cases."
+    },
+    {
+      "id": "code-003",
+      "category": "code",
+      "text": "Design a thread-safe byte-budgeted LRU cache API. Give pseudocode for get, insert, and eviction, and explain how entries larger than the entire budget should be handled."
+    },
+    {
+      "id": "mathematics-001",
+      "category": "mathematics",
+      "text": "A cache serves 72 percent of 2500 expert requests from memory. Each hit costs 0.15 milliseconds and each miss costs 4.8 milliseconds. Compute the average request latency and show each step."
+    },
+    {
+      "id": "mathematics-002",
+      "category": "mathematics",
+      "text": "Find all real solutions of x^4 - 5x^2 + 4 = 0. Explain the substitution you use and verify the solutions in the original equation."
+    },
+    {
+      "id": "mathematics-003",
+      "category": "mathematics",
+      "text": "A model has 40 layers, 256 experts per layer, and selects 8 experts per token. If every expert occupies 6.5 MiB, calculate the total expert storage, active expert bytes per layer, and active expert bytes across all layers for one token."
+    },
+    {
+      "id": "reasoning-001",
+      "category": "reasoning",
+      "text": "Four jobs A, B, C, and D must run once. A must precede C, B must precede D, and C cannot run immediately after B. List every valid ordering and explain a systematic way to ensure none are missed."
+    },
+    {
+      "id": "reasoning-002",
+      "category": "reasoning",
+      "text": "A device becomes slower after ten minutes, but memory use remains flat. Give three competing hypotheses, the measurement that would distinguish each one, and the order in which you would test them."
+    },
+    {
+      "id": "reasoning-003",
+      "category": "reasoning",
+      "text": "You can preload two of five resources. Resource A is requested with probability 0.40, B with 0.25, C with 0.15, D with 0.12, and E with 0.08. A and B each take twice as long to load as the others. Define a reasonable objective, choose what to preload, and discuss when your choice would change."
+    },
+    {
+      "id": "expository-001",
+      "category": "expository",
+      "text": "Explain mixture-of-experts language models to a software engineer who understands dense transformers but has not studied model routing. Distinguish total parameters from active parameters."
+    },
+    {
+      "id": "expository-002",
+      "category": "expository",
+      "text": "Explain why many small random reads from flash storage can be slower than fewer large sequential reads even when the total byte count is identical."
+    },
+    {
+      "id": "expository-003",
+      "category": "expository",
+      "text": "Write a concise technical note comparing prefill and decode in autoregressive inference, focusing on computational shape, memory access, and why they should be benchmarked separately."
+    }
+  ]
+}

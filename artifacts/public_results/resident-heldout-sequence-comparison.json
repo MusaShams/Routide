@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "status": "completed-multi-token-exact-agreement-not-established",
+  "prefillFollowUp": "expository-prefill-localization-2026-09-15.json",
+  "experimentID": "routide-qwen36-resident-heldout-sequences-v1",
+  "measuredDateLocal": "2026-09-15",
+  "conditions": {
+    "hardware": "Apple M1 Ultra",
+    "modelRevision": "38740b847e4cb78f352aba30aa41c76e08e6eb46",
+    "mlxLMRevision": "cf10f962b7a20e63a6df43dbf0faf06070153d40",
+    "mlxVersion": "0.31.2",
+    "mlxMetalVersion": "0.31.2",
+    "oracleProtocol": "resident-oracle-v3.json",
+    "promptSource": "Five previously recorded -001 held-out phone prompts; exact prepared token IDs reused without retokenization.",
+    "sourcePhoneOperatingSystem": "Version 26.6.1 (Build 23G83)",
+    "residentOperatingSystem": "macOS 26.6.2",
+    "sampling": "greedy",
+    "prefillStepSize": 1,
+    "freshLayerCachesPerCaseAndMode": true,
+    "maximumGeneratedTokens": 128,
+    "endTokenIDs": [248046],
+    "newPhoneCaptures": 0
+  },
+  "freeGeneration": {
+    "completedCases": 5,
+    "exactSequenceMatches": 0,
+    "casesReaching128Tokens": 5,
+    "generatedTokens": 640,
+    "modelForwards": 929,
+    "stopFlagsMatchReference": true,
+    "interpretation": "No complete 128-token free-running sequence exactly matches its recorded phone reference. Later differences can be consequences of the first different token rather than independent numerical errors."
+  },
+  "fixedReferenceHistory": {
+    "completedDiagnosticCases": 5,
+    "matchingNextTokenPredictions": 624,
+    "totalNextTokenPredictions": 640,
+    "matchingPredictionPercent": 97.5,
+    "differentNextTokenPredictions": 16,
+    "modelForwards": 929,
+    "interpretation": "Teacher-forced diagnostics feed the recorded phone tokens back into the resident model, keeping history identical at each comparison. The 97.5% figure is conditional next-token agreement, not free-generation sequence accuracy or a task-quality score."
+  },
+  "cases": [
+    {
+      "promptID": "conversation-001",
+      "promptTokens": 49,
+      "matchingFreePrefixTokens": 2,
+      "firstDifferentOutputPositionOneBased": 3,
+      "residentTokenID": 6430,
+      "phoneTokenID": 657,
+      "residentSelectedTokenLogit": 29.625,
+      "phoneTokenLogitInResidentModel": 29.5,
+      "fixedHistoryMatches": 123,
+      "referenceTokens": 128
+    },
+    {
+      "promptID": "code-001",
+      "promptTokens": 52,
+      "matchingFreePrefixTokens": 82,
+      "firstDifferentOutputPositionOneBased": 83,
+      "residentTokenID": 1031,
+      "phoneTokenID": 92,
+      "residentSelectedTokenLogit": 25.75,
+      "phoneTokenLogitInResidentModel": 25.625,
+      "fixedHistoryMatches": 127,
+      "referenceTokens": 128
+    },
+    {
+      "promptID": "mathematics-001",
+      "promptTokens": 69,
+      "matchingFreePrefixTokens": 72,
+      "firstDifferentOutputPositionOneBased": 73,
+      "residentTokenID": 3404,
+      "phoneTokenID": 524,
+      "residentSelectedTokenLogit": 25.125,
+      "phoneTokenLogitInResidentModel": 25.0,
+      "fixedHistoryMatches": 126,
+      "referenceTokens": 128
+    },
+    {
+      "promptID": "reasoning-001",
+      "promptTokens": 71,
+      "matchingFreePrefixTokens": 1,
+      "firstDifferentOutputPositionOneBased": 2,
+      "residentTokenID": 11290,
+      "phoneTokenID": 7995,
+      "residentSelectedTokenLogit": 26.0,
+      "phoneTokenLogitInResidentModel": 25.875,
+      "fixedHistoryMatches": 127,
+      "referenceTokens": 128
+    },
+    {
+      "promptID": "expository-001",
+      "promptTokens": 53,
+      "matchingFreePrefixTokens": 0,
+      "firstDifferentOutputPositionOneBased": 1,
+      "residentTokenID": 37405,
+      "phoneTokenID": 12189,
+      "residentSelectedTokenLogit": 23.125,
+      "phoneTokenLogitInResidentModel": 22.75,
+      "fixedHistoryMatches": 121,
+      "referenceTokens": 128
+    }
+  ],
+  "validation": {
+    "localTestsPassed": 28,
+    "remoteTestsPassed": 28,
+    "frozenPhoneSourceValidatedBeforeExtraction": true,
+    "checkpointInventoryAndPinnedCoreChecksPassed": true,
+    "rawToken0SanityCheckPassed": true,
+    "officialUpstreamGeneratorCrossCheck": {
+      "api": "mlx_lm.generate.generate_step",
+      "prefillStepSize": 1,
+      "samplingTemperature": 0,
+      "cases": 5,
+      "allGeneratedTokenSequencesExactlyMatchCustomSerialRunner": true,
+      "tokensCompared": 640,
+      "purpose": "Rule out a discrepancy caused by the custom serial-generation loop."
+    },
+    "referenceDecodedTextScope": "Derived from recorded phone token IDs using the pinned tokenizer; not newly measured phone output.",
+    "noComparisonProcessLeftRunning": true
+  },
+  "sourceFiles": {
+    "completeComparison": {
+      "file": "resident-heldout-sequences-2026-09-15-raw.json",
+      "sha256": "607213595a11976a466632a0473734e1cff8abd05df3f94a30185c8856c30bc2"
+    },
+    "upstreamCrossCheck": {
+      "file": "resident-heldout-upstream-crosscheck-2026-09-15.json",
+      "sha256": "920730de5559409caa11f9d3c0f4132ca6085a3e187a305ee7e5b8787b3432f2"
+    },
+    "preparedTokenCases": {
+      "file": "../RouterTrace/resident-heldout-token-cases-v1.json",
+      "sha256": "1f5b00213d3a21a38dcc0a195cc43acc679d3a9bef40353bcaa08f05b6935890"
+    },
+    "phoneRouteSource": {
+      "file": "../DeviceRoutes/iphone17-pro-max-heldout-routes-128-2026-09-07.json",
+      "sha256": "b6672b529e1fef208e39917d890121bc6ee919e248939f2b3c03cdb7b421fc75"
+    },
+    "sequenceRunner": {
+      "file": "../RouterTrace/routide_trace/resident_sequences.py",
+      "sha256": "c1db9ffb10b8b0a249a0e0c6c6a8e9116bec7cc05b1a8d54ad21a5606e65424d"
+    },
+    "sharedOracleValidation": {
+      "file": "../RouterTrace/routide_trace/resident_oracle.py",
+      "sha256": "8b8f634fbe32182a17f77c6cf28be282cf81f2e924e6d69f86b9055bca67fd95"
+    }
+  },
+  "conclusion": {
+    "comparisonComplete": true,
+    "generalMultiTokenLosslessnessEstablished": false,
+    "singleRawTokenAgreementWasInsufficient": true,
+    "remainingCauseIsolatedToSpecificKernelOrCacheState": false,
+    "nextDiagnostic": "Localize the first prefill/layer-state difference for expository-001, which differs at the first generated token; avoid another broad phone-generation sweep.",
+    "phoneDefaultUnchanged": "576 MiB LRU with None",
+    "noPhoneCodeOrTieBreakerChanged": true
+  },
+  "limitations": [
+    "One recorded prompt per category is not a broad task-quality benchmark.",
+    "Fixed-history prediction agreement must not be reported as 97.5% free-generation agreement.",
+    "The recorded first-difference logits are resident-model scores for the two token choices, not measured iPhone logits or guaranteed top-two margins.",
+    "Hardware, implementation, and runtime builds still differ between resident Python and paged iPhone execution; the responsible recurrent-state or arithmetic difference is not yet isolated.",
+    "The successful raw-token-0 control remains valid but does not prove multi-token equivalence.",
+    "Instrumented durations include synchronization and diagnostic work and are not phone speed or energy measurements."
+  ],
+  "awsSession": {
+    "hostStillAllocated": true,
+    "minimumReleaseAtUTC": "2026-09-17T01:00:03Z",
+    "minimumReleaseAtUserUTCMinus4": "2026-09-16T21:00:03-04:00",
+    "automaticReleaseConfigured": false
+  }
+}

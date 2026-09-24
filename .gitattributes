@@ -1,0 +1,11 @@
+# Evidence and protocol SHA-256 values cover exact bytes, including line endings.
+# Disable automatic conversion even when a contributor enables core.autocrlf.
+* -text
+
+*.pdf binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.icns binary

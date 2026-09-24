@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "status": "stopped-under-predeclared-thermal-rule",
+  "completeFourteenRunCampaign": false,
+  "validationDate": "2026-09-19",
+  "source": {
+    "rawFile": "iphone17-pro-max-process-memory-campaign-2026-09-19-raw.json",
+    "rawSHA256": "3e352b7781c73e506874ef40f80346f00419b2d58d0174893019f8cb23e91eb2",
+    "rawProvenance": "Exact terminal checkpoint copied from the phone; a second download was byte-identical.",
+    "deviceExportFile": "Routide-memory-campaign-8DE06CDF-722B-4863-A7A9-CAEBF24C29FE.json",
+    "experimentID": "8DE06CDF-722B-4863-A7A9-CAEBF24C29FE",
+    "rawStatus": "failed",
+    "protocolFile": "../../Libraries/RoutideRuntime/Resources/process-memory-campaign-v1.json",
+    "protocolSHA256": "66fbecaac66f369368d4f457a02754ece71d773a42b221c3792c79db2e5a4e10",
+    "packManifestSHA256": "f8be2e36c337ee53e637441f9e3b282d249a8ff316fe4c04f753497a81dd5aa4",
+    "smokeVerificationFile": "iphone17-pro-max-process-memory-smoke-8-token-2026-09-19.json"
+  },
+  "buildAndDevice": {
+    "configuration": "Release",
+    "operatingSystem": "Version 27.0 (Build 24A437)",
+    "physicalMemoryBytes": 12263424000,
+    "bundleIdentifier": "research.Routide92AQ687JD8",
+    "xcodeBuild": "27A266a",
+    "sdkBuild": "24A430",
+    "phoneReportedExecutableSHA256": "9da46f6e124a7027d13b661559b99f5063c0886b94c0ed26808aa4fa4c400c34",
+    "sameExecutableAsValidatedSmokeInstallation": true,
+    "sameOperatingSystemAndDeviceMetadataForEveryRequest": true
+  },
+  "execution": {
+    "startedAt": "2026-09-19T19:22:36Z",
+    "terminalCheckpointAt": "2026-09-19T19:38:46Z",
+    "launchCount": 1,
+    "automaticRetries": 0,
+    "replacementRuns": 0,
+    "completedRequests": 12,
+    "requestsPassingAllPredeclaredConditions": 11,
+    "generatedTokens": 1536,
+    "allCompletedRequestsReached128TokenCap": true,
+    "sumOfMonotonicRequestWindowsSeconds": 943.868167875,
+    "logicalExpertPayloadBytes": 1004122275840,
+    "notExecuted": [
+      {"sequence": 13, "promptID": "memory-context-001", "cacheBudgetBytes": 603979776, "maxGeneratedTokens": 32},
+      {"sequence": 14, "promptID": "memory-context-001", "cacheBudgetBytes": 536870912, "maxGeneratedTokens": 32}
+    ]
+  },
+  "stop": {
+    "sequence": 12,
+    "promptID": "mathematics-001",
+    "pair": 2,
+    "cacheBudgetBytes": 536870912,
+    "generationCompletedBeforeValidation": true,
+    "rawFailure": "Run 12 failed memory sampling, load scope, thermal, power-mode, or interruption checks.",
+    "identifiedFailedConditions": [
+      {"field": "thermalState", "required": "nominal", "observed": "fair"},
+      {"field": "peakThermalState", "required": "nominal", "observed": "fair"}
+    ],
+    "allOtherRun12MemoryEnvironmentAndOutputAccountingChecksPassedIndependentInspection": true,
+    "memoryWarningCount": 0,
+    "lifecycleInterruptionCount": 0,
+    "samplingFailureCount": 0,
+    "thresholdRelaxed": false,
+    "thermalViolatingRunRetained": true,
+    "longerContextRunsStartedAfterStop": false
+  },
+  "processMemoryFindings": {
+    "scope": "whole-process samples during load-inclusive requests, including preparation and metric drain",
+    "sampleIntervalMilliseconds": 250,
+    "successfulSampleCountAcross12Requests": 3793,
+    "samplingFailureCountAcross12Requests": 0,
+    "maximumSuccessfulSampleGapSeconds": 0.25513579099999995,
+    "allBoundarySamplesPresent": true,
+    "allModelWasLoadedAtStartFlagsFalse": true,
+    "allReportedSummariesReconciledAgainstTheirSamples": true,
+    "everyMemoryWindowContainsItsPrecisePagedRequestWindow": true,
+    "minimumRequestSampledPeakPhysicalFootprintBytes": 2011843816,
+    "maximumRequestSampledPeakPhysicalFootprintBytes": 2488782416,
+    "maximumFootprintObservedInSequence": 11,
+    "minimumRequestSampledPeakResidentBytes": 1900052480,
+    "maximumRequestSampledPeakResidentBytes": 2273656832,
+    "minimumAvailableMemoryBytesAcrossRequests": 3953668528,
+    "memoryWarningsAcrossCampaign": 0,
+    "lifecycleInterruptionsAcrossCampaign": 0,
+    "baselineInterpretation": "The first request starts in a fresh process. Later requests recreate the model and tokenizer but retain the app process; a false modelWasLoadedAtStart flag is not a claim that allocator or OS caches are empty."
+  },
+  "outputAndCacheFindings": {
+    "completedDistinctPrompts": 3,
+    "requestsPerPrompt": 4,
+    "identicalPreparedTokenIDsGeneratedTokenIDsOutputTextAndStopFlagsWithinEachPrompt": true,
+    "comparisonReferenceRule": "First completed request for each prompt; compare the other three requests against it.",
+    "exactGeneratedTokenComparisons": 1152,
+    "matchingGeneratedTokenComparisons": 1152,
+    "everyDemandRequestCountMatchesPromptPlusGeneratedMinusOneTimes320": true,
+    "everyPayloadByteCountEqualsMissesTimes1769472": true,
+    "allCacheBudgetsRespected": true,
+    "allSpeculationCountersZero": true,
+    "demandCountersRepeatExactlyAtEachBudgetWithinEachPrompt": true,
+    "defaultRemains": "576 MiB / LRU / None"
+  },
+  "cases": [
+    {
+      "promptID": "conversation-001",
+      "promptTokens": 49,
+      "allFourRunsNominal": true,
+      "generatedTokenIDsSHA256CompactJSON": "57f371b00eab5c855842e9c8d8e571546f0115932c34c0aeceb50f06ef0f8190",
+      "runs": [
+        {"sequence": 1, "pair": 1, "cacheMiB": 512, "protocolValid": true, "elapsedSeconds": 83.78161001205444, "decodeTokensPerSecond": 2.2230781942977873, "sampledPeakFootprintBytes": 2011843816},
+        {"sequence": 2, "pair": 1, "cacheMiB": 576, "protocolValid": true, "elapsedSeconds": 74.81126201152802, "decodeTokensPerSecond": 2.57415575478768, "sampledPeakFootprintBytes": 2310442480},
+        {"sequence": 3, "pair": 2, "cacheMiB": 576, "protocolValid": true, "elapsedSeconds": 62.729528069496155, "decodeTokensPerSecond": 3.1862398543158696, "sampledPeakFootprintBytes": 2474511928},
+        {"sequence": 4, "pair": 2, "cacheMiB": 512, "protocolValid": true, "elapsedSeconds": 75.0445739030838, "decodeTokensPerSecond": 2.4427957837281737, "sampledPeakFootprintBytes": 2389839416}
+      ],
+      "countersPerRunByBudget": [
+        {"cacheMiB": 512, "hits": 0, "misses": 56320, "logicalExpertPayloadBytes": 99656663040},
+        {"cacheMiB": 576, "hits": 22583, "misses": 33737, "logicalExpertPayloadBytes": 59696676864}
+      ],
+      "elapsedSummarySeconds": [
+        {"cacheMiB": 512, "minimum": 75.0445739030838, "median": 79.41309195756912, "maximum": 83.78161001205444},
+        {"cacheMiB": 576, "minimum": 62.729528069496155, "median": 68.77039504051208, "maximum": 74.81126201152802}
+      ],
+      "pairs": [
+        {"pair": 1, "bothNominal": true, "elapsedPercentChange576Versus512": -10.706822176412912, "decodeRatePercentChange576Versus512": 15.79240718524475},
+        {"pair": 2, "bothNominal": true, "elapsedPercentChange576Versus512": -16.410308158311217, "decodeRatePercentChange576Versus512": 30.43414744449322}
+      ],
+      "logicalReadReductionPercent576Versus512": 40.09765625
+    },
+    {
+      "promptID": "code-001",
+      "promptTokens": 52,
+      "allFourRunsNominal": true,
+      "generatedTokenIDsSHA256CompactJSON": "9326b6548ac55c043735c103ec9c620223c894b80a6290dbb425490dd3e5aa1f",
+      "runs": [
+        {"sequence": 5, "pair": 1, "cacheMiB": 576, "protocolValid": true, "elapsedSeconds": 70.8381199836731, "decodeTokensPerSecond": 2.6401282884112987, "sampledPeakFootprintBytes": 2375503392},
+        {"sequence": 6, "pair": 1, "cacheMiB": 512, "protocolValid": true, "elapsedSeconds": 84.17282891273499, "decodeTokensPerSecond": 2.13733178007317, "sampledPeakFootprintBytes": 2384743968},
+        {"sequence": 7, "pair": 2, "cacheMiB": 512, "protocolValid": true, "elapsedSeconds": 76.45833492279053, "decodeTokensPerSecond": 2.443293467272212, "sampledPeakFootprintBytes": 2390642232},
+        {"sequence": 8, "pair": 2, "cacheMiB": 576, "protocolValid": true, "elapsedSeconds": 81.94624400138855, "decodeTokensPerSecond": 2.1507373935383156, "sampledPeakFootprintBytes": 2355154488}
+      ],
+      "countersPerRunByBudget": [
+        {"cacheMiB": 512, "hits": 0, "misses": 57280, "logicalExpertPayloadBytes": 101355356160},
+        {"cacheMiB": 576, "hits": 21858, "misses": 35422, "logicalExpertPayloadBytes": 62678237184}
+      ],
+      "elapsedSummarySeconds": [
+        {"cacheMiB": 512, "minimum": 76.45833492279053, "median": 80.31558191776276, "maximum": 84.17282891273499},
+        {"cacheMiB": 576, "minimum": 70.8381199836731, "median": 76.39218199253082, "maximum": 81.94624400138855}
+      ],
+      "pairs": [
+        {"pair": 1, "bothNominal": true, "elapsedPercentChange576Versus512": -15.842058656346769, "decodeRatePercentChange576Versus512": 23.52449502813809},
+        {"pair": 2, "bothNominal": true, "elapsedPercentChange576Versus512": 7.177646602087062, "decodeRatePercentChange576Versus512": -11.973840950858738}
+      ],
+      "logicalReadReductionPercent576Versus512": 38.15991620111732
+    },
+    {
+      "promptID": "mathematics-001",
+      "promptTokens": 69,
+      "allFourRunsNominal": false,
+      "timingInterpretation": "Run 12 is retained but violates the nominal-thermal condition. Pair 2 is not a valid nominal comparison; the all-row median below is descriptive only and includes that run.",
+      "generatedTokenIDsSHA256CompactJSON": "1bf44226495d330d67f220e27e2105f0823e3266ef6b43e8eacf791c843bf9c7",
+      "runs": [
+        {"sequence": 9, "pair": 1, "cacheMiB": 512, "protocolValid": true, "elapsedSeconds": 89.12844002246857, "decodeTokensPerSecond": 2.1891223115030005, "sampledPeakFootprintBytes": 2429750840},
+        {"sequence": 10, "pair": 1, "cacheMiB": 576, "protocolValid": true, "elapsedSeconds": 82.11952292919159, "decodeTokensPerSecond": 2.4172754137090227, "sampledPeakFootprintBytes": 2438401616},
+        {"sequence": 11, "pair": 2, "cacheMiB": 576, "protocolValid": true, "elapsedSeconds": 76.70659291744232, "decodeTokensPerSecond": 2.6738848363348104, "sampledPeakFootprintBytes": 2488782416},
+        {"sequence": 12, "pair": 2, "cacheMiB": 512, "protocolValid": false, "elapsedSeconds": 86.11976706981659, "decodeTokensPerSecond": 2.334767661141442, "sampledPeakFootprintBytes": 2441858640, "peakThermalState": "fair"}
+      ],
+      "countersPerRunByBudget": [
+        {"cacheMiB": 512, "hits": 0, "misses": 62720, "logicalExpertPayloadBytes": 110981283840},
+        {"cacheMiB": 576, "hits": 24464, "misses": 38256, "logicalExpertPayloadBytes": 67692920832}
+      ],
+      "elapsedSummarySecondsIncludingNonNominalRun12": [
+        {"cacheMiB": 512, "minimum": 86.11976706981659, "median": 87.62410354614258, "maximum": 89.12844002246857},
+        {"cacheMiB": 576, "minimum": 76.70659291744232, "median": 79.41305792331696, "maximum": 82.11952292919159}
+      ],
+      "pairs": [
+        {"pair": 1, "bothNominal": true, "elapsedPercentChange576Versus512": -7.8638390748341225, "decodeRatePercentChange576Versus512": 10.422126758617601},
+        {"pair": 2, "bothNominal": false, "elapsedPercentChange576Versus512": -10.930329322353005, "decodeRatePercentChange576Versus512": 14.52466473805698}
+      ],
+      "logicalReadReductionPercent576Versus512": 39.00510204081633
+    }
+  ],
+  "validation": {
+    "protocolDefinitionHashAndOrderedPrefixVerified": true,
+    "rawGenerationRecordsPassedExistingSchema12GenerationValidator": true,
+    "rawMemoryReportsPassedExistingStrictSampleValidator": true,
+    "counterAccountingAndExactWithinCaseGenerationIndependentlyCheckedIncludingRun12": true,
+    "clockAwareRequestDurationAccountingPassed": true,
+    "completedOnlyCampaignAnalyzerCorrectlyRejectedStoppedStatus": true,
+    "existingPythonRegressionTestsPassed": 36,
+    "onPhoneExecutableMatchesLocallyVerifiedReleaseDigest": true,
+    "rawCheckpointUnchangedAfterSecondDownload": true
+  },
+  "operationalObservations": [
+    "CoreDevice's attached console disconnected during the campaign, and one checkpoint download failed transiently. The same phone process continued and later checkpoints advanced without a generation relaunch.",
+    "The monitor read the single checkpoint approximately every 90 seconds; read-only transfer recovery did not retry or replace generation requests.",
+    "No debugger attached, runtime/default changes, new model download, AWS access, or power recording was used for this campaign."
+  ],
+  "interpretation": [
+    "Actual sampled whole-process footprint peaks span approximately 1.87-2.32 GiB across the 12 completed 128-token requests. RSS peaks are a separate metric; do not add RSS, footprint, and MLX allocations.",
+    "This closes the native process-memory measurement gap for these short prompts, but does not establish longer-context scaling: steps 13 and 14 did not run.",
+    "The 576 MiB LRU configuration reduces logical expert payload reads by 38.16-40.10 percent versus 512 MiB on these three prompts. This is policy/workload-specific, not a universal minimum-RAM result.",
+    "Latency remains mixed. The second nominal code pair is slower at 576 MiB despite fewer reads. Preserve it rather than rerun for a win.",
+    "A fair thermal state triggered the frozen stop rule. It is not a crash, memory warning, or proof that thermal throttling occurred, but it invalidates the nominal condition for run 12."
+  ],
+  "limitations": [
+    "This is a stopped partial campaign, not a completed 14-run study. Do not discard the stopping row or silently append the missing cases.",
+    "Memory maxima are sampled every 250 ms and may miss transient peaks; they are not continuous OS high-water marks.",
+    "Available-memory values are current process dirty-limit headroom, not system free RAM or guaranteed safety from jetsam.",
+    "Model recreation and a cold expert cache do not reset all process allocations, OS filesystem caches, or physical storage caches. Footprint differences cannot be attributed solely to the extra 64 MiB cache budget.",
+    "No inferential significance, general speedup, energy savings, physical NAND traffic, or task-quality claim follows.",
+    "The new iOS 27 / Xcode 27 cohort remains separate from older iOS 26 timing studies.",
+    "A longer-context follow-up would require a separately declared continuation, not an automatic retry or a relabeling of this record."
+  ]
+}

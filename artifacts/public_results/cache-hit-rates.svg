@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="535" viewBox="0 0 1000 535" style="max-width:100%;height:auto;display:block" role="img" aria-labelledby="title description">
+<title id="title">Cache-policy sensitivity on five recorded iPhone traces</title><desc id="description">Request-weighted hit rates. Random shows all-five-seed mean and range, not a confidence interval. Oracle curves are offline references.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172638;font-size:14px}.title{font-size:21px;font-weight:bold}.small{font-size:12px}.grid{stroke:#d9e1e8;stroke-width:1}</style>
+<text x="48" y="34" class="title">Cache-policy sensitivity on five recorded iPhone traces</text>
+<line x1="85" y1="375.0" x2="935" y2="375.0" class="grid"/>
+<text x="73" y="380.0" text-anchor="end">0</text>
+<line x1="85" y1="307.5" x2="935" y2="307.5" class="grid"/>
+<text x="73" y="312.5" text-anchor="end">20</text>
+<line x1="85" y1="240.0" x2="935" y2="240.0" class="grid"/>
+<text x="73" y="245.0" text-anchor="end">40</text>
+<line x1="85" y1="172.5" x2="935" y2="172.5" class="grid"/>
+<text x="73" y="177.5" text-anchor="end">60</text>
+<line x1="85" y1="105.0" x2="935" y2="105.0" class="grid"/>
+<text x="73" y="110.0" text-anchor="end">80</text>
+<text x="85.0" y="400" text-anchor="middle">448</text>
+<text x="179.44444444444446" y="400" text-anchor="middle">512</text>
+<text x="273.8888888888889" y="400" text-anchor="middle">576</text>
+<text x="368.3333333333333" y="400" text-anchor="middle">640</text>
+<text x="557.2222222222222" y="400" text-anchor="middle">768</text>
+<text x="935.0" y="400" text-anchor="middle">1024</text>
+<text x="85" y="83">Hit rate (%)</text>
+<text x="510" y="427" text-anchor="middle">Expert payload cache budget (MiB)</text>
+<polyline data-policy="lru" points="85.000,375.000 179.444,375.000 273.889,244.805 368.333,244.805 557.222,243.693 935.000,214.381" fill="none" stroke="#1664b2" stroke-width="2.4"/>
+<circle data-budget="448" data-hit-rate="0.0" cx="85.000" cy="375.000" r="3.6" fill="#1664b2"/>
+<circle data-budget="512" data-hit-rate="0.0" cx="179.444" cy="375.000" r="3.6" fill="#1664b2"/>
+<circle data-budget="576" data-hit-rate="38.57642626480086" cx="273.889" cy="244.805" r="3.6" fill="#1664b2"/>
+<circle data-budget="640" data-hit-rate="38.57642626480086" cx="368.333" cy="244.805" r="3.6" fill="#1664b2"/>
+<circle data-budget="768" data-hit-rate="38.90574542518838" cx="557.222" cy="243.693" r="3.6" fill="#1664b2"/>
+<circle data-budget="1024" data-hit-rate="47.59082346609257" cx="935.000" cy="214.381" r="3.6" fill="#1664b2"/>
+<line x1="48" y1="453" x2="73" y2="453" stroke="#1664b2" stroke-width="2.4"/>
+<text x="80" y="457" class="small">LRU</text>
+<polyline data-policy="fifo" points="85.000,375.000 179.444,375.000 273.889,288.383 368.333,288.107 557.222,266.130 935.000,238.719" fill="none" stroke="#b36818" stroke-width="2.4"/>
+<circle data-budget="448" data-hit-rate="0.0" cx="85.000" cy="375.000" r="3.6" fill="#b36818"/>
+<circle data-budget="512" data-hit-rate="0.0" cx="179.444" cy="375.000" r="3.6" fill="#b36818"/>
+<circle data-budget="576" data-hit-rate="25.664356835306783" cx="273.889" cy="288.383" r="3.6" fill="#b36818"/>
+<circle data-budget="640" data-hit-rate="25.7460979547901" cx="368.333" cy="288.107" r="3.6" fill="#b36818"/>
+<circle data-budget="768" data-hit-rate="32.2578040904198" cx="557.222" cy="266.130" r="3.6" fill="#b36818"/>
+<circle data-budget="1024" data-hit-rate="40.3794402583423" cx="935.000" cy="238.719" r="3.6" fill="#b36818"/>
+<line x1="368" y1="453" x2="393" y2="453" stroke="#b36818" stroke-width="2.4"/>
+<text x="400" y="457" class="small">FIFO</text>
+<polyline data-policy="lfu" points="85.000,375.000 179.444,375.000 273.889,368.855 368.333,368.356 557.222,360.297 935.000,348.543" fill="none" stroke="#bc4162" stroke-width="2.4"/>
+<circle data-budget="448" data-hit-rate="0.0" cx="85.000" cy="375.000" r="3.6" fill="#bc4162"/>
+<circle data-budget="512" data-hit-rate="0.0" cx="179.444" cy="375.000" r="3.6" fill="#bc4162"/>
+<circle data-budget="576" data-hit-rate="1.8208423035522066" cx="273.889" cy="368.855" r="3.6" fill="#bc4162"/>
+<circle data-budget="640" data-hit-rate="1.9685145317545747" cx="368.333" cy="368.356" r="3.6" fill="#bc4162"/>
+<circle data-budget="768" data-hit-rate="4.356498923573735" cx="557.222" cy="360.297" r="3.6" fill="#bc4162"/>
+<circle data-budget="1024" data-hit-rate="7.839074273412271" cx="935.000" cy="348.543" r="3.6" fill="#bc4162"/>
+<line x1="688" y1="453" x2="713" y2="453" stroke="#bc4162" stroke-width="2.4"/>
+<text x="720" y="457" class="small">LFU (per residency)</text>
+<polyline data-policy="hybrid" points="85.000,375.000 179.444,375.000 273.889,325.551 368.333,290.909 557.222,248.623 935.000,206.809" fill="none" stroke="#13785c" stroke-width="2.4"/>
+<circle data-budget="448" data-hit-rate="0.0" cx="85.000" cy="375.000" r="3.6" fill="#13785c"/>
+<circle data-budget="512" data-hit-rate="0.0" cx="179.444" cy="375.000" r="3.6" fill="#13785c"/>
+<circle data-budget="576" data-hit-rate="14.651506996770722" cx="273.889" cy="325.551" r="3.6" fill="#13785c"/>
+<circle data-budget="640" data-hit-rate="24.91590419806243" cx="368.333" cy="290.909" r="3.6" fill="#13785c"/>
+<circle data-budget="768" data-hit-rate="37.44516953713671" cx="557.222" cy="248.623" r="3.6" fill="#13785c"/>
+<circle data-budget="1024" data-hit-rate="49.83449946178687" cx="935.000" cy="206.809" r="3.6" fill="#13785c"/>
+<line x1="48" y1="476" x2="73" y2="476" stroke="#13785c" stroke-width="2.4"/>
+<text x="80" y="480" class="small">Recency-frequency hybrid</text>
+<polygon points="85.000,322.611 179.444,312.064 273.889,301.674 368.333,292.290 557.222,275.551 935.000,248.726 935.000,248.335 557.222,275.092 368.333,291.669 273.889,301.234 179.444,311.126 85.000,322.283" fill="#8246b1" opacity="0.16"/>
+<polyline data-policy="random" points="85.000,322.495 179.444,311.548 273.889,301.413 368.333,292.032 557.222,275.280 935.000,248.530" fill="none" stroke="#8246b1" stroke-width="2.4"/>
+<circle data-budget="448" data-hit-rate="15.556983315392896" cx="85.000" cy="322.495" r="3.6" fill="#8246b1"/>
+<circle data-budget="512" data-hit-rate="18.800726587728743" cx="179.444" cy="311.548" r="3.6" fill="#8246b1"/>
+<circle data-budget="576" data-hit-rate="21.80361948331539" cx="273.889" cy="301.413" r="3.6" fill="#8246b1"/>
+<circle data-budget="640" data-hit-rate="24.583153928955866" cx="368.333" cy="292.032" r="3.6" fill="#8246b1"/>
+<circle data-budget="768" data-hit-rate="29.54662271259419" cx="557.222" cy="275.280" r="3.6" fill="#8246b1"/>
+<circle data-budget="1024" data-hit-rate="37.47255113024758" cx="935.000" cy="248.530" r="3.6" fill="#8246b1"/>
+<line x1="368" y1="476" x2="393" y2="476" stroke="#8246b1" stroke-width="2.4"/>
+<text x="400" y="480" class="small">Random (five-seed mean)</text>
+<polyline data-policy="oracle" points="85.000,200.710 179.444,191.096 273.889,182.849 368.333,175.642 557.222,163.082 935.000,144.734" fill="none" stroke="#344b60" stroke-width="2.4" stroke-dasharray="8 5"/>
+<circle data-budget="448" data-hit-rate="51.64155005382132" cx="85.000" cy="200.710" r="3.6" fill="#344b60"/>
+<circle data-budget="512" data-hit-rate="54.4900430570506" cx="179.444" cy="191.096" r="3.6" fill="#344b60"/>
+<circle data-budget="576" data-hit-rate="56.93353067814855" cx="273.889" cy="182.849" r="3.6" fill="#344b60"/>
+<circle data-budget="640" data-hit-rate="59.068891280947255" cx="368.333" cy="175.642" r="3.6" fill="#344b60"/>
+<circle data-budget="768" data-hit-rate="62.79063509149623" cx="557.222" cy="163.082" r="3.6" fill="#344b60"/>
+<circle data-budget="1024" data-hit-rate="68.22692411194834" cx="935.000" cy="144.734" r="3.6" fill="#344b60"/>
+<line x1="688" y1="476" x2="713" y2="476" stroke="#344b60" stroke-width="2.4" stroke-dasharray="8 5"/>
+<text x="720" y="480" class="small">Pinned farthest-next-use</text>
+<polyline data-policy="oracle-relaxed" points="85.000,199.685 179.444,190.295 273.889,182.172 368.333,175.044 557.222,162.613 935.000,144.453" fill="none" stroke="#747b82" stroke-width="2.4" stroke-dasharray="2 4"/>
+<circle data-budget="448" data-hit-rate="51.94530409041981" cx="85.000" cy="199.685" r="3.6" fill="#747b82"/>
+<circle data-budget="512" data-hit-rate="54.72752960172228" cx="179.444" cy="190.295" r="3.6" fill="#747b82"/>
+<circle data-budget="576" data-hit-rate="57.134351453175455" cx="273.889" cy="182.172" r="3.6" fill="#747b82"/>
+<circle data-budget="640" data-hit-rate="59.24616523143165" cx="368.333" cy="175.044" r="3.6" fill="#747b82"/>
+<circle data-budget="768" data-hit-rate="62.92956135629709" cx="557.222" cy="162.613" r="3.6" fill="#747b82"/>
+<circle data-budget="1024" data-hit-rate="68.3103471474704" cx="935.000" cy="144.453" r="3.6" fill="#747b82"/>
+<line x1="48" y1="499" x2="73" y2="499" stroke="#747b82" stroke-width="2.4" stroke-dasharray="2 4"/>
+<text x="80" y="503" class="small">Relaxed unpinned oracle</text>
+<text x="935" y="515" text-anchor="end" class="small">Offline bounds nearly overlap. Fixed-route replay is not a latency estimate.</text></svg>

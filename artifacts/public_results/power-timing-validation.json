@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "status": "validated-one-token-timestamp-alignment",
+  "sourceBenchmarkSchemaVersion": 9,
+  "requestID": "196C17BA-47D9-42FB-BE48-94C54BC29DE2",
+  "device": {
+    "model": "iPhone 17 Pro Max",
+    "operatingSystem": "Version 26.6.1 (Build 23G83)",
+    "appReportedPeakThermalState": "nominal"
+  },
+  "workload": {
+    "modelID": "mlx-community/Qwen3.6-35B-A3B-4bit",
+    "prompt": ".",
+    "promptTokens": 23,
+    "generatedTokens": 1,
+    "configuredCacheBudgetMiB": 512,
+    "expertCachePolicy": "lru",
+    "expertPrefetchPolicy": "none",
+    "expertCacheMisses": 7360,
+    "expertBytesRead": 13023313920,
+    "elapsedTimeSeconds": 12.303558111190796,
+    "prefetchDrainTimeSeconds": 0.001272666
+  },
+  "recording": {
+    "method": "iOS Performance Trace in Power Profiler mode, followed by offline import",
+    "archive": "PowerProfiler_26-09-06_212555_to_26-09-06_212619_4607.aar",
+    "archiveSHA256": "e8a3e48518569be94625ac494ddcc880c6b09a8cf7086247797b4ddc71b344b1",
+    "archiveBytes": 963101,
+    "traceStartDate": "2026-09-06T21:25:55.916-04:00",
+    "traceDurationSeconds": 22.971272,
+    "xcodeBuild": "17F113",
+    "rawRecordingsCommitted": false
+  },
+  "requestTiming": {
+    "scope": "paged-request-including-metric-drain",
+    "startedAtUnixSeconds": 1788744361.880519,
+    "finishedAtUnixSeconds": 1788744374.185394,
+    "monotonicDurationSeconds": 12.30483225,
+    "clockSampleUncertaintySeconds": 0.000001,
+    "wallClockDriftSeconds": 0.0000428854217524588,
+    "requestStartSecondsInTrace": 5.964519023895264,
+    "requestFinishSecondsInTrace": 18.269394159317017,
+    "requestedWindowSeconds": 12.304875135421753,
+    "traceTimestampResolutionSeconds": 0.001,
+    "observedClockErrorBudgetSeconds": 0.0010438854217524587,
+    "exportTimestampUsedForAlignment": false
+  },
+  "sourceIntervalValidation": {
+    "source": "com.apple.PerfPowerMetricMonitor / PowerMetrics / SystemMetrics",
+    "signpostScope": "Process",
+    "matchedSystemMetricEventRows": 48,
+    "positiveDurationPairs": 23,
+    "zeroDurationPairsExcluded": 1,
+    "producerCount": 1,
+    "beginEndPayloadsMatch": true,
+    "originalIntervalsNonOverlapping": true,
+    "derivedTableRows": 23,
+    "derivedAdjacentOverlaps": 22,
+    "maximumDerivedOverlapNanoseconds": 1008777083,
+    "allOriginalRatesAndEndsMatchDerivedRows": true,
+    "overlappingDerivedTableRejected": true,
+    "interpretation": "The original matched event bounds are coherent. In this import, derived starts retain the preceding interval's start. Original intervals are used explicitly rather than trimming or double-counting the derived rows."
+  },
+  "systemPowerEstimate": {
+    "kind": "source-window rate-time estimate",
+    "sampleIntervalsUsed": 14,
+    "coveredSeconds": 12.304874593421754,
+    "uncoveredSeconds": 0.0000005419999986600033,
+    "coverageFraction": 0.9999999559524179,
+    "durationWeightedBatteryPercentPerHour": 25.147591185003115,
+    "estimatedBatteryPercentagePointsOverCoveredWindow": 0.08595498773836159,
+    "chargingOverlapObserved": false
+  },
+  "validation": {
+    "swiftTimingTestsPassed": 3,
+    "pythonPowerAnalysisTestsPassed": 18,
+    "signedReleaseBuildPassed": true,
+    "schema9TimingVerifiedOnDevice": true,
+    "full512TokenPowerRunCompleted": false
+  },
+  "limitations": [
+    "This validates a one-token measurement method, not sustained inference power.",
+    "Request alignment uses captured device Unix timestamps, not a recovered PagedGeneration marker.",
+    "Original signpost boundaries establish logged intervals. The sampled-power payload association is empirically checked, but its private estimator is not publicly specified as an interval-average physical measurement.",
+    "The rate-time estimate is whole-device reported battery percentage points, not app-only watts, joules, or a direct battery-level delta.",
+    "The request monotonic cross-check does not detect clock changes outside the request.",
+    "Thermal state here is independently sampled by the app; an imported Unknown thermal state is not relabeled nominal."
+  ],
+  "nextStep": "Record one unplugged 512-token confidence-0.20 prefill-gated request with the same on-device workflow, export schema-9 JSON, and apply the validated clock, pairing, charging, and coverage checks."
+}
